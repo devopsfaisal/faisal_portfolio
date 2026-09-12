@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faisal Ansari — Technical Lead / Senior DevOps & Cloud Architect</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Faisal Ansari — Technical Lead & Senior DevOps/Cloud Engineer. Enterprise OpenShift operations at State Bank of India, AWS EKS Karpenter, Terraform, Kafka, GemFire, Istio, and DevSecOps.">
+  <meta name="keywords" content="Faisal Ansari, DevOps Architect, Cloud Architect, State Bank of India, OpenShift, Kubernetes, AWS EKS, Karpenter, Terraform, Kafka, GemFire, Istio, Observability">
+  <meta name="author" content="Faisal Ansari">
+  <meta property="og:title" content="Faisal Ansari — Senior DevOps & Cloud Architect">
+  <meta property="og:description" content="Architecting resilient multi-cloud and banking platforms across AWS, OpenShift, EKS, and Kafka.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Credly Badge Verification Embed Script -->
+  <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Faisal Ansari",
+    "jobTitle": "Technical Lead / Senior DevOps & Cloud Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "State Bank of India (SBI)"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Aligarh Muslim University"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/faisal-ansari-173b2176"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ambient glowing backdrop for subtle high-tech feel -->
+  <div class="ambient-glow">
+    <div class="ambient-blob-1"></div>
+    <div class="ambient-blob-2"></div>
+    <div class="ambient-blob-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-icon">FA</div>
+        <div class="brand-title">
+          <span class="name">Faisal Ansari</span>
+          <span class="role">Cloud & Platform Architect</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#topology" class="nav-link">Architecture</a></li>
+          <li><a href="#terminal" class="nav-link">Terminal</a></li>
+          <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills-cert" class="nav-link">Skills & Certs</a></li>
+          <li><a href="https://blog.faisal.host" target="_blank" rel="noopener" class="nav-link nav-link-blog" title="Engineering Blog">Blog ↗</a></li>
+          <li><a href="https://notes.faisal.host" target="_blank" rel="noopener" class="nav-link nav-link-notes" title="Architecture Notes & Notion Runbooks">Notes ↗</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>SBI OpenShift Ops</span>
+        </div>
+        <!-- Two-Color Theme Switcher (Dark Slate / Warm Sand) -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Warm Sand / Dark theme" title="Toggle Theme (Dark / Warm Sand)">
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-label" id="themeLabelText">Theme</span>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-top-badges">
+            <span class="badge badge-blue">Deputy Manager (Systems) @ State Bank of India</span>
+            <span class="badge badge-emerald">4x Certified AWS & GitHub</span>
+            <span class="badge badge-cyan">Platform Engineering & Cloud</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Architecting <span class="highlight-blue">Resilient Multi-Cloud</span> & Banking Platforms at Scale.
+          </h1>
+
+          <p class="hero-subtitle">
+            Technical Lead & Senior Cloud/DevOps Architect specializing in mission-critical enterprise platforms. Proven track record operating tier-1 banking systems across <strong>OpenShift / OCP</strong>, <strong>Amazon EKS with Karpenter</strong>, <strong>Apache Kafka</strong>, <strong>Tanzu GemFire</strong>, <strong>Istio</strong>, and automated <strong>GitOps/Terraform</strong> pipelines.
+          </p>
+
+          <!-- Core Architecture Metrics -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">99.999%</span>
+              <span class="hero-stat-label">Banking SLA Target</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">&lt;40s</span>
+              <span class="hero-stat-label">Karpenter Scale-Up</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">-38%</span>
+              <span class="hero-stat-label">AWS Compute Spend</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">8+ Yrs</span>
+              <span class="hero-stat-label">Enterprise DevOps</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#topology" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              Explore Topology
+            </a>
+            <a href="assets/Faisal_Ansari_Resume.pdf" download="Faisal_Ansari_Resume.pdf" class="btn btn-secondary" id="btnHeroResume" title="Download Official PDF Resume">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume
+            </a>
+            <a href="#terminal" class="btn btn-outline-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              Launch Terminal
+            </a>
+            <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" class="btn btn-outline-primary" rel="noopener">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="hero-trust-badges">
+            <span class="hero-trust-title">Core Ecosystem:</span>
+            <div class="hero-tech-icons">
+              <span class="tech-pill">☸️ OpenShift / OCP</span>
+              <span class="tech-pill">☁️ AWS (EKS, VPC, Transit)</span>
+              <span class="tech-pill">⚡ Apache Kafka</span>
+              <span class="tech-pill">💎 Tanzu GemFire</span>
+              <span class="tech-pill">🛡️ Istio Mesh</span>
+              <span class="tech-pill">🏗️ Terraform</span>
+              <span class="tech-pill">📊 LGTM Observability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right: Live Architecture Status Preview Card -->
+        <div class="hero-visual-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 1.1rem;">☁️</span>
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Production Cloud Platform Node</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">AWS Multi-AZ EKS • Karpenter Autoscaling</div>
+              </div>
+            </div>
+            <span class="badge badge-emerald">OPERATIONAL</span>
+          </div>
+
+          <!-- Micro Telemetry Grid Inside Hero -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div style="background: var(--bg-subtle); border-radius: var(--radius-md); padding: 0.85rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Karpenter JIT Scaling</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--primary); font-family: var(--font-mono); margin-top: 0.2rem;">34.2s <span style="font-size: 0.75rem; font-weight: 500;">spin-up</span></div>
+              <div style="font-size: 0.7rem; color: var(--accent-k8s); font-weight: 600; margin-top: 0.2rem;">● Dynamic NodePool</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); border-radius: var(--radius-md); padding: 0.85rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">LGTM Telemetry</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--accent-purple); font-family: var(--font-mono); margin-top: 0.2rem;">24/7 <span style="font-size: 0.75rem; font-weight: 500;">active</span></div>
+              <div style="font-size: 0.7rem; color: var(--accent-k8s); font-weight: 600; margin-top: 0.2rem;">● Prometheus + Loki</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); border-radius: var(--radius-md); padding: 0.85rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Infrastructure as Code</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--accent-k8s); font-family: var(--font-mono); margin-top: 0.2rem;">100% <span style="font-size: 0.75rem; font-weight: 500;">IaC</span></div>
+              <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600; margin-top: 0.2rem;">Terraform Modules</div>
+            </div>
+
+            <div style="background: var(--bg-subtle); border-radius: var(--radius-md); padding: 0.85rem; border: 1px solid var(--border-subtle);">
+              <div style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">AWS Compute Spend</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 0.2rem;">-38% <span style="font-size: 0.75rem; font-weight: 500;">cost</span></div>
+              <div style="font-size: 0.7rem; color: var(--accent-k8s); font-weight: 600; margin-top: 0.2rem;">● Spot Consolidation</div>
+            </div>
+          </div>
+
+          <!-- Quick terminal snippet in hero -->
+          <div style="background: var(--term-bg); border: 1px solid var(--term-border); border-radius: var(--radius-md); padding: 0.85rem; font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: var(--text-muted); margin-bottom: 0.35rem;"># Live cluster status:</div>
+            <div style="color: var(--primary); font-weight: 600;">$ kubectl get nodepools.karpenter.sh</div>
+            <div style="color: var(--accent-k8s); margin-top: 0.2rem;">NAME: default  NODECLASS: default  READY: True  AGE: 180d</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Interactive Architecture Topology Playground -->
+  <section id="topology" style="background: var(--bg-canvas); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Architecture Topology</span>
+        <h2 class="section-title">Visualizing <span class="gradient-text">Enterprise Cloud Infrastructures</span></h2>
+        <p class="section-desc">
+          Explore how Faisal connects platform components across active banking clusters, elastic AWS EKS autoscaling, and secure air-gapped on-prem appliances. Click on any node to inspect operational decisions.
+        </p>
+      </div>
+
+      <div class="topology-container">
+        <!-- Topology Header with Tabs -->
+        <div class="topology-header">
+          <div class="topology-title-area">
+            <span style="font-size: 1.35rem;">🏗️</span>
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">Infrastructure Blueprints</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Switch between architectures designed & operated by Faisal</div>
+            </div>
+          </div>
+
+          <div class="topology-tabs">
+            <button class="topo-tab-btn active" data-topo="aws">
+              <span>☁️</span> AWS EKS + Karpenter Autoscaling
+            </button>
+            <button class="topo-tab-btn" data-topo="appliance">
+              <span>📦</span> Air-Gapped K8s Appliance
+            </button>
+            <button class="topo-tab-btn" data-topo="observability">
+              <span>📊</span> Multi-Cloud GitOps &amp; LGTM Stack
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic SVG Canvas Stage -->
+        <div class="topology-stage" id="topologyStage">
+          <!-- Rendered dynamically by topology.js -->
+        </div>
+
+        <!-- Node Inspection Details Panel -->
+        <div class="topo-details-panel">
+          <div>
+            <div class="topo-info-title" id="topoDetailTitle">
+              State Bank of India — Multi-DC Production Architecture
+            </div>
+            <p class="topo-info-desc" id="topoDetailDesc">
+              Production-grade enterprise platform engineering across geographically distributed banking data centers. Features OpenShift/OCP, GemFire in-memory caching, Apache Kafka event streaming with consumer lag isolation, Istio zero-trust service mesh, and strict RBI/DPDPA regulatory compliance.
+            </p>
+          </div>
+
+          <div class="topo-metric-chips" id="topoDetailChips">
+            <span class="badge badge-blue">OpenShift OCP</span>
+            <span class="badge badge-blue">Apache Kafka</span>
+            <span class="badge badge-blue">Tanzu GemFire</span>
+            <span class="badge badge-blue">Istio Mesh</span>
+            <span class="badge badge-emerald">RBI & DPDPA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Live Observability & Telemetry Preview -->
+  <section id="telemetry" style="background: var(--bg-canvas);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Production Observability</span>
+        <h2 class="section-title">Telemetry & <span class="gradient-text">Operational Reliability</span></h2>
+        <p class="section-desc">
+          Continuous monitoring of mission-critical platform signals. Real-time telemetry simulation reflecting metrics Faisal actively observes and tunes in production.
+        </p>
+      </div>
+
+      <!-- Telemetry Cards Grid -->
+      <div class="telemetry-grid">
+        <!-- Card 1: Kafka Lag -->
+        <div class="telemetry-card" style="--card-accent: #2563eb;">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Kafka Consumer Lag</span>
+            <span class="badge badge-blue">Real-Time</span>
+          </div>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value" id="telemetryKafkaLag">14 msgs</span>
+            <span class="telemetry-trend down-good">↓ Stable</span>
+          </div>
+          <svg class="telemetry-chart" viewBox="0 0 160 40">
+            <path id="kafkaChartPath" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div class="telemetry-footer-text">
+            <span>Partition Health: 100%</span>
+            <span>Alert Threshold: &gt;500</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Karpenter Spin-up -->
+        <div class="telemetry-card" style="--card-accent: #059669;">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Karpenter Scale-Up</span>
+            <span class="badge badge-emerald">JIT Compute</span>
+          </div>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value" id="telemetryKarpenterTime">34.2s</span>
+            <span class="telemetry-trend up-good">4x Faster</span>
+          </div>
+          <svg class="telemetry-chart" viewBox="0 0 160 40">
+            <path id="karpenterChartPath" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div class="telemetry-footer-text">
+            <span>Dynamic Spot/On-Demand</span>
+            <span>Consolidation: Active</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Banking Platform Availability -->
+        <div class="telemetry-card" style="--card-accent: #dc2626;">
+          <div class="telemetry-header">
+            <span class="telemetry-label">Cluster Availability</span>
+            <span class="badge badge-red">SBI Multi-DC</span>
+          </div>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value" id="telemetryClusterHealth">99.998%</span>
+            <span class="telemetry-trend up-good">SLA Met</span>
+          </div>
+          <svg class="telemetry-chart" viewBox="0 0 160 40">
+            <path id="clusterChartPath" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div class="telemetry-footer-text">
+            <span>Geo DR Active</span>
+            <span>Zero Data Loss</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Incident MTTI Reduction -->
+        <div class="telemetry-card" style="--card-accent: #7c3aed;">
+          <div class="telemetry-header">
+            <span class="telemetry-label">MTTI (Time to Isolate)</span>
+            <span class="badge badge-purple">LGTM Stack</span>
+          </div>
+          <div class="telemetry-value-row">
+            <span class="telemetry-value" id="telemetryMttiReduction">-64%</span>
+            <span class="telemetry-trend up-good">↓ Reduced</span>
+          </div>
+          <svg class="telemetry-chart" viewBox="0 0 160 40">
+            <path id="mttiChartPath" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div class="telemetry-footer-text">
+            <span>Prometheus + Loki + Tempo</span>
+            <span>Tracing Enabled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Interactive Terminal (faisal-cli) -->
+  <section id="terminal" style="background: var(--bg-canvas); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Cloud Shell</span>
+        <h2 class="section-title">Query the Platform via <span class="gradient-text">Live CLI</span></h2>
+        <p class="section-desc">
+          Test real infrastructure commands, inspect cluster nodes, validate Istio mesh status, or review certifications directly in this interactive shell.
+        </p>
+      </div>
+
+      <div style="max-width: 960px; margin: 0 auto;">
+        <div class="terminal-window">
+          <!-- Terminal Header -->
+          <div class="terminal-header">
+            <div class="terminal-controls">
+              <span class="term-btn term-btn-close"></span>
+              <span class="term-btn term-btn-min"></span>
+              <span class="term-btn term-btn-max"></span>
+            </div>
+            <div class="terminal-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              faisal@cloud-node: ~/cloud-platform (zsh)
+            </div>
+            <div class="terminal-actions">
+              <button class="term-copy-btn" id="termCopyBtn">Copy Log</button>
+              <button class="term-clear-btn" id="termClearBtn">Clear</button>
+            </div>
+          </div>
+
+          <!-- Terminal Body -->
+          <div class="terminal-body" id="terminalBody">
+            <div class="term-line">
+              <div class="term-prompt-row">
+                <span class="term-user">faisal@cloud-node</span>
+                <span class="term-path">~/cloud-platform</span>
+                <span class="term-git">(main)</span>
+                <span class="term-cmd">$ faisal --welcome</span>
+              </div>
+              <div class="term-output">
+<span class="term-hl-blue">★ Welcome to Faisal Ansari's Cloud Architect Terminal ★</span>
+Enterprise Platform Engineer &amp; Technical Lead | Deputy Manager (Systems) @ State Bank of India
+Type <span class="term-hl-purple">help</span> or click any quick command chip below to begin.
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Input Row -->
+          <div style="padding: 0.6rem 1.25rem; background: var(--bg-surface); border-top: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.65rem;">
+            <span style="color: var(--primary); font-family: var(--font-mono); font-weight: 700; font-size: 0.85rem;">❯</span>
+            <input type="text" class="terminal-input" id="terminalInput" placeholder="Try 'kubectl get nodes', 'terraform plan', 'blog', or 'help'..." autofocus autocomplete="off" spellcheck="false">
+          </div>
+
+          <!-- Quick Command Chips -->
+          <div class="terminal-quick-cmds">
+            <span class="quick-cmd-label">Core CLI:</span>
+            <button class="quick-cmd-chip" data-cmd="kubectl get nodes">kubectl get nodes</button>
+            <button class="quick-cmd-chip" data-cmd="kubectl get pods -A">kubectl get pods -A</button>
+            <button class="quick-cmd-chip" data-cmd="terraform plan">terraform plan</button>
+            <button class="quick-cmd-chip" data-cmd="istioctl analyze">istioctl analyze</button>
+            
+            <span class="quick-cmd-label" style="margin-left: 0.5rem; color: var(--accent-amber);">Observability &amp; SIEM:</span>
+            <button class="quick-cmd-chip" style="color: var(--accent-amber); border-color: var(--accent-amber-border); background: var(--accent-amber-light);" data-cmd="promql --kafka-lag">promql --kafka-lag</button>
+            <button class="quick-cmd-chip" style="color: var(--accent-purple); border-color: var(--accent-purple-border); background: var(--accent-purple-light);" data-cmd="loki --gemfire-logs">loki --gemfire-logs</button>
+            <button class="quick-cmd-chip" style="color: var(--primary); border-color: var(--primary-border); background: var(--primary-light);" data-cmd="tempo --trace">tempo --trace</button>
+            <button class="quick-cmd-chip" style="color: var(--accent-k8s); border-color: var(--accent-k8s-border); background: var(--accent-k8s-light);" data-cmd="grafana alerts">grafana alerts</button>
+
+            <span class="quick-cmd-label" style="margin-left: 0.5rem; color: var(--accent-cyan);">Subdomains:</span>
+            <button class="quick-cmd-chip" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.1);" data-cmd="blog">blog ↗</button>
+            <button class="quick-cmd-chip" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.1);" data-cmd="notes">notes (notion) ↗</button>
+
+            <button class="quick-cmd-chip" data-cmd="faisal --certifications">faisal --certifications</button>
+            <button class="quick-cmd-chip" data-cmd="faisal --experience">faisal --experience</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Production Case Studies & Architectural Deep Dives -->
+  <section id="case-studies" style="background: var(--bg-canvas);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Case Studies & Architectures</span>
+        <h2 class="section-title">Production Battles & <span class="gradient-text">Architectural Solutions</span></h2>
+        <p class="section-desc">
+          Real enterprise challenges solved across banking platforms, AWS cloud migrations, zero-trust service meshes, and air-gapped appliances.
+        </p>
+      </div>
+
+      <!-- Filters -->
+      <div class="case-study-controls">
+        <button class="filter-btn active" data-filter="all">All Disciplines (10)</button>
+        <button class="filter-btn" data-filter="banking">Banking & Enterprise (4)</button>
+        <button class="filter-btn" data-filter="aws">AWS & Cloud Infra (3)</button>
+        <button class="filter-btn" data-filter="cicd">CI/CD & Appliances (2)</button>
+        <button class="filter-btn" data-filter="devsecops">DevSecOps & Security (1)</button>
+      </div>
+
+      <!-- Grid of 9 Case Studies -->
+      <div class="case-studies-grid">
+
+        <!-- Case 1: OpenShift Banking Operations -->
+        <div class="case-card" data-category="banking">
+          <div class="case-card-header">
+            <span class="case-org-tag">State Bank of India</span>
+            <span class="badge badge-red">OpenShift / OCP</span>
+          </div>
+          <h3 class="case-title">Enterprise OpenShift Banking Platform Operations</h3>
+          <p class="case-desc">
+            Production platform engineering across geographically distributed enterprise data centers supporting India’s tier-1 digital banking services.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">99.999%</span>
+              <span class="metric-micro-label">SLA Target</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">RBI &amp; DPDPA</span>
+              <span class="metric-micro-label">Compliance</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">OpenShift 4.14+</span>
+            <span class="badge badge-gray">Multi-DC DR</span>
+            <span class="badge badge-gray">Platform Readiness</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-sbi-ocp">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 2: Kafka Lag Troubleshooting -->
+        <div class="case-card" data-category="banking">
+          <div class="case-card-header">
+            <span class="case-org-tag">State Bank of India</span>
+            <span class="badge badge-amber">Apache Kafka</span>
+          </div>
+          <h3 class="case-title">Kafka Consumer Lag Troubleshooting &amp; Throughput Tuning</h3>
+          <p class="case-desc">
+            Detecting abnormal lag, correlating metrics and logs with application consumer health, and isolating platform vs service-specific bottlenecks.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">-55%</span>
+              <span class="metric-micro-label">Incident MTTR</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">&lt;30s</span>
+              <span class="metric-micro-label">Lag Detection</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">Kafka Broker</span>
+            <span class="badge badge-gray">Consumer Health</span>
+            <span class="badge badge-gray">Prometheus</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-kafka-lag">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 3: GemFire In-Memory Health -->
+        <div class="case-card" data-category="banking">
+          <div class="case-card-header">
+            <span class="case-org-tag">State Bank of India</span>
+            <span class="badge badge-emerald">Tanzu GemFire</span>
+          </div>
+          <h3 class="case-title">GemFire In-Memory Data Platform Health Monitoring</h3>
+          <p class="case-desc">
+            Resource-utilization anomaly detection, JVM heap/off-heap memory tuning, and correlating cache spikes with transaction symptoms during troubleshooting.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">&lt;2ms</span>
+              <span class="metric-micro-label">P99 Latency</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">98.6%</span>
+              <span class="metric-micro-label">Cache Hit Ratio</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">In-Memory Cache</span>
+            <span class="badge badge-gray">JVM Tuning</span>
+            <span class="badge badge-gray">Resource Signals</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-gemfire-health">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 4: Istio Service Mesh -->
+        <div class="case-card" data-category="banking">
+          <div class="case-card-header">
+            <span class="case-org-tag">State Bank of India</span>
+            <span class="badge badge-purple">Istio Mesh</span>
+          </div>
+          <h3 class="case-title">Istio Service-Mesh Zero-Trust &amp; Telemetry Operations</h3>
+          <p class="case-desc">
+            Supporting enterprise Istio mesh, validating inter-service mTLS behavior after deployments, and isolating service-to-service routing symptoms.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">100%</span>
+              <span class="metric-micro-label">Strict mTLS</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">Zero-Touch</span>
+              <span class="metric-micro-label">Cert Rotation</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">Envoy Sidecars</span>
+            <span class="badge badge-gray">mTLS Encryption</span>
+            <span class="badge badge-gray">Traffic Routing</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-istio-mesh">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 5: AWS EKS + Karpenter -->
+        <div class="case-card" data-category="aws">
+          <div class="case-card-header">
+            <span class="case-org-tag">Binmile Technologies</span>
+            <span class="badge badge-blue">AWS EKS + Karpenter</span>
+          </div>
+          <h3 class="case-title">Dynamic EKS Node Autoscaling with Karpenter</h3>
+          <p class="case-desc">
+            Workload-driven just-in-time node provisioning, heterogeneous instance lifecycle management, and intelligent spot/on-demand orchestration.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">-38%</span>
+              <span class="metric-micro-label">Compute Spend</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">&lt;40s</span>
+              <span class="metric-micro-label">Node Spin-up</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">AWS EKS</span>
+            <span class="badge badge-gray">Karpenter</span>
+            <span class="badge badge-gray">Terraform</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-karpenter-eks">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 6: Full Observability Stack (LGTM) -->
+        <div class="case-card" data-category="aws">
+          <div class="case-card-header">
+            <span class="case-org-tag">Binmile Technologies</span>
+            <span class="badge badge-purple">LGTM Stack</span>
+          </div>
+          <h3 class="case-title">LGTM Full-Stack Observability Pipeline</h3>
+          <p class="case-desc">
+            Personally implemented Prometheus (metrics), Grafana (dashboards), Loki (logs), and Tempo (distributed tracing) to slash time-to-isolate.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">-64%</span>
+              <span class="metric-micro-label">MTTI Reduction</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">2TB+/day</span>
+              <span class="metric-micro-label">Log Capacity</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">Prometheus</span>
+            <span class="badge badge-gray">Grafana Loki</span>
+            <span class="badge badge-gray">Tempo Tracing</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-lgtm-stack">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 7: On-Prem K8s Appliance -->
+        <div class="case-card" data-category="cicd">
+          <div class="case-card-header">
+            <span class="case-org-tag">Incedo</span>
+            <span class="badge badge-cyan">On-Prem K8s</span>
+          </div>
+          <h3 class="case-title">Air-Gapped On-Premises Kubernetes Appliance (VMDK)</h3>
+          <p class="case-desc">
+            Pre-packaged portable application appliance delivered as VMDK for VMware &amp; Nutanix, complete with MicroK8s, S3 syncing, and Helm monitoring.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">&lt;30m</span>
+              <span class="metric-micro-label">Deployment</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">100%</span>
+              <span class="metric-micro-label">Air-Gapped</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">MicroK8s</span>
+            <span class="badge badge-gray">VMware VMDK</span>
+            <span class="badge badge-gray">Nutanix AHV</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-appliance-vmdk">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 8: Sealed Secrets Automation -->
+        <div class="case-card" data-category="cicd">
+          <div class="case-card-header">
+            <span class="case-org-tag">Incedo</span>
+            <span class="badge badge-purple">Sealed Secrets</span>
+          </div>
+          <h3 class="case-title">Kubernetes Sealed Secrets CI/CD Automation</h3>
+          <p class="case-desc">
+            Personally built end-to-end asymmetric encryption pipeline using kubeseal to eliminate plain Kubernetes Secret manifests from release artifacts.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">100%</span>
+              <span class="metric-micro-label">Encrypted</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">Zero</span>
+              <span class="metric-micro-label">Plaintext Leaks</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">kubeseal</span>
+            <span class="badge badge-gray">GitOps</span>
+            <span class="badge badge-gray">Python CLI</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-sealed-secrets">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 9: DevSecOps Pipeline -->
+        <div class="case-card" data-category="devsecops">
+          <div class="case-card-header">
+            <span class="case-org-tag">Binmile / Sightview</span>
+            <span class="badge badge-emerald">DevSecOps</span>
+          </div>
+          <h3 class="case-title">Automated Multi-Stage DevSecOps Pipeline</h3>
+          <p class="case-desc">
+            Integrated SAST (SonarQube), DAST (OWASP ZAP), container scanning (Trivy &amp; Black Duck), and SAML SSO into automated CI/CD release gates.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">0 High CVEs</span>
+              <span class="metric-micro-label">Gate Policy</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">HIPAA/GDPR</span>
+              <span class="metric-micro-label">Compliant</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">SonarQube</span>
+            <span class="badge badge-gray">OWASP ZAP</span>
+            <span class="badge badge-gray">Trivy</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-devsecops">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 10: VMware Migration Automation -->
+        <div class="case-card" data-category="aws">
+          <div class="case-card-header">
+            <span class="case-org-tag">Eye Care Leaders</span>
+            <span class="badge badge-purple">vCenter &amp; AWS</span>
+          </div>
+          <h3 class="case-title">Automated VMware Cloud VM Migration &amp; pyVmomi Integration</h3>
+          <p class="case-desc">
+            Automated hypervisor VM migration pipelines using Python pyVmomi API, Jenkins Declarative, Chef, and Terraform under HIPAA compliance.
+          </p>
+          <div class="case-key-metrics">
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">-70%</span>
+              <span class="metric-micro-label">Migration Window</span>
+            </div>
+            <div class="metric-micro-item">
+              <span class="metric-micro-val">HIPAA</span>
+              <span class="metric-micro-label">Compliant</span>
+            </div>
+          </div>
+          <div class="case-tech-stack">
+            <span class="badge badge-gray">Python pyVmomi</span>
+            <span class="badge badge-gray">VMware vCenter</span>
+            <span class="badge badge-gray">Jenkins &amp; Chef</span>
+          </div>
+          <div class="case-card-footer">
+            <button class="case-action-btn" data-case="case-vmware-migration">
+              Deep Dive Architecture <span>→</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Career Timeline & Leadership -->
+  <section id="experience" style="background: var(--bg-canvas); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career Milestones</span>
+        <h2 class="section-title">Enterprise <span class="gradient-text">Leadership & Progression</span></h2>
+        <p class="section-desc">
+          From Python/Odoo software engineering to leading cloud infrastructure, OpenShift banking platforms, and Kubernetes appliances across India and global enterprises.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+
+        <!-- 1. State Bank of India -->
+        <div class="timeline-item active">
+          <div class="timeline-node-icon">
+            <span style="font-size: 0.8rem; font-weight: 800; color: #059669;">●</span>
+          </div>
+          <div class="timeline-card-content">
+            <div class="timeline-top-meta">
+              <div>
+                <h3 class="timeline-role">Deputy Manager (Systems)</h3>
+                <div class="timeline-company">
+                  <span>🏛️ State Bank of India (SBI)</span>
+                  <span class="badge badge-emerald">Current Enterprise Role</span>
+                </div>
+              </div>
+              <span class="timeline-date-badge">Sep 2025 – Present</span>
+            </div>
+            <p class="timeline-summary">
+              Enterprise platform engineering and production operations for a large-scale banking digital platform, covering OpenShift/OCP, GemFire, Kafka, Istio, Liferay, AWS CloudFront/CDN, Prometheus/Grafana, centralized logging, deployment validation, and infrastructure onboarding.
+            </p>
+            <ul class="timeline-points-list">
+              <li>Build and configure production OpenShift environments across geographically distributed data centers with cluster-level validation and troubleshooting.</li>
+              <li>Monitor Kafka consumer lag as a production health indicator, isolate service-specific vs platform-wide anomalies, and support delayed message incident investigations.</li>
+              <li>Monitor Tanzu GemFire in-memory data platform health, correlate CPU/memory spikes with service symptoms during active troubleshooting.</li>
+              <li>Support and monitor Istio service mesh, validate service behavior and routing policies post-deployment.</li>
+              <li>Apply strict security and operational controls aligned with DPDPA and applicable Reserve Bank of India (RBI) regulatory requirements.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="badge badge-blue">OpenShift OCP</span>
+              <span class="badge badge-blue">Apache Kafka</span>
+              <span class="badge badge-blue">VMware GemFire</span>
+              <span class="badge badge-blue">Istio Mesh</span>
+              <span class="badge badge-blue">Prometheus / Grafana</span>
+              <span class="badge badge-emerald">RBI / DPDPA Compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Incedo -->
+        <div class="timeline-item">
+          <div class="timeline-node-icon"></div>
+          <div class="timeline-card-content">
+            <div class="timeline-top-meta">
+              <div>
+                <h3 class="timeline-role">Technical Lead (DevOps)</h3>
+                <div class="timeline-company">
+                  <span>🏢 Incedo</span>
+                </div>
+              </div>
+              <span class="timeline-date-badge">Jan 2025 – Sep 2025</span>
+            </div>
+            <p class="timeline-summary">
+              Workstreams spanning AWS/Terraform/GitHub Actions/Python automation and an on-premises Kubernetes appliance workflow, for enterprise clients across financial services and industrial sectors.
+            </p>
+            <ul class="timeline-points-list">
+              <li>Engineered a portable, pre-packaged application appliance delivered as a VMDK that customers import into VMware and Nutanix on-premise infrastructure.</li>
+              <li>Integrated MicroK8s, sync of container images from AWS S3, and Helm-based Prometheus/Kafka/Zookeeper stacks into the automated release package.</li>
+              <li><strong>Personally built Kubernetes Sealed Secrets Automation:</strong> automated data extraction, kubeseal manifest generation, and deployment injection to eradicate plaintext Secret manifests from release artifacts.</li>
+              <li>Developed backup/restore workflows for databases (MongoDB, InfluxDB) and automated workload readiness checks for Deployments, StatefulSets, and DaemonSets.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="badge badge-blue">MicroK8s</span>
+              <span class="badge badge-blue">VMware VMDK</span>
+              <span class="badge badge-blue">kubeseal</span>
+              <span class="badge badge-blue">Terraform</span>
+              <span class="badge badge-blue">GitHub Actions</span>
+              <span class="badge badge-blue">Python Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Binmile Technologies -->
+        <div class="timeline-item">
+          <div class="timeline-node-icon"></div>
+          <div class="timeline-card-content">
+            <div class="timeline-top-meta">
+              <div>
+                <h3 class="timeline-role">Sr. DevOps Engineer (AWS)</h3>
+                <div class="timeline-company">
+                  <span>🚀 Binmile Technologies</span>
+                </div>
+              </div>
+              <span class="timeline-date-badge">Jun 2024 – Jan 2025</span>
+            </div>
+            <p class="timeline-summary">
+              Multiple AWS and DevOps workstreams across enterprise client engagements with heavy focus on EKS, Karpenter, and Observability.
+            </p>
+            <ul class="timeline-points-list">
+              <li>Designed and provisioned AWS infrastructure using Terraform (EKS, VPC, Transit Gateway, Route 53, WAF, CloudFront, RDS, Control Tower).</li>
+              <li>Implemented Karpenter-driven dynamic node provisioning, heterogeneous instance lifecycle management, and workload capacity planning on Amazon EKS.</li>
+              <li><strong>Personally implemented full LGTM Observability Stack:</strong> Prometheus (metrics), Grafana (dashboards), Loki (logs), and Tempo (distributed tracing), drastically cutting time-to-isolate platform issues.</li>
+              <li>Architected multi-stage DevSecOps release gates with SonarQube (SAST), OWASP ZAP (DAST), and Trivy/Black Duck container security.</li>
+              <li>Mentored junior DevOps engineers in CI/CD best practices, blue/green and canary deployment strategies, and cloud cost optimization.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="badge badge-blue">AWS EKS</span>
+              <span class="badge badge-blue">Karpenter</span>
+              <span class="badge badge-blue">Terraform</span>
+              <span class="badge badge-blue">Prometheus / Loki / Tempo</span>
+              <span class="badge badge-blue">SonarQube / Trivy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Eye Care Leaders (now Sightview) -->
+        <div class="timeline-item">
+          <div class="timeline-node-icon"></div>
+          <div class="timeline-card-content">
+            <div class="timeline-top-meta">
+              <div>
+                <h3 class="timeline-role">DevOps Engineer (AWS)</h3>
+                <div class="timeline-company">
+                  <span>🏥 Eye Care Leaders (Sightview)</span>
+                </div>
+              </div>
+              <span class="timeline-date-badge">Feb 2023 – May 2024</span>
+            </div>
+            <p class="timeline-summary">
+              Automating cloud operations, CI/CD pipelines, and compliance across healthcare infrastructure under strict HIPAA and GDPR standards.
+            </p>
+            <ul class="timeline-points-list">
+              <li>Automated build/deployment workflows using Jenkins Declarative Pipelines; wrote Groovy shared libraries.</li>
+              <li>Developed Python automation using `pyVmomi` API for VMware vCenter and cloud VM migrations.</li>
+              <li>Configuration management automation with Ansible and Chef; Python/Boto3 automation for AWS instance scheduling and S3-to-RDS backup/restore.</li>
+              <li>Secured remote access workflows utilizing AWS SSO and Apache Guacamole in compliance with HIPAA requirements.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="badge badge-blue">AWS Control Tower</span>
+              <span class="badge badge-blue">pyVmomi</span>
+              <span class="badge badge-blue">Ansible</span>
+              <span class="badge badge-blue">Jenkins</span>
+              <span class="badge badge-blue">HIPAA Compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Viiking Paymaster & Indicsoft -->
+        <div class="timeline-item">
+          <div class="timeline-node-icon"></div>
+          <div class="timeline-card-content">
+            <div class="timeline-top-meta">
+              <div>
+                <h3 class="timeline-role">DevOps / Python &amp; Application Development</h3>
+                <div class="timeline-company">
+                  <span>💳 Viiking Paymaster &amp; Indicsoft Technologies</span>
+                </div>
+              </div>
+              <span class="timeline-date-badge">Sep 2018 – Feb 2023</span>
+            </div>
+            <p class="timeline-summary">
+              Foundational career progression bridging software engineering, Python application development, and AWS cloud/DevOps operations.
+            </p>
+            <ul class="timeline-points-list">
+              <li>Managed and optimized AWS infrastructure for performance, reliability, and cost via CloudWatch and AWS Trusted Advisor.</li>
+              <li>Built and published Docker container images; configured Nginx reverse proxies and load balancing.</li>
+              <li>Developed and maintained Python and Odoo ERP/FinTech applications (CRM, sales, payroll, inventory) and real-time OTP authentication.</li>
+              <li>Contributed to a government House Tax project involving GIS and Python, establishing Linux sysadmin and production troubleshooting foundations.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="badge badge-blue">Python</span>
+              <span class="badge badge-blue">Docker</span>
+              <span class="badge badge-blue">Nginx</span>
+              <span class="badge badge-blue">AWS Cost Optimization</span>
+              <span class="badge badge-blue">Linux Sysadmin</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Technical Skills & Certifications Matrix -->
+  <section id="skills-cert" style="background: var(--bg-canvas);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Competency & Credentials</span>
+        <h2 class="section-title">Verified <span class="gradient-text">Skills & Certifications</span></h2>
+        <p class="section-desc">
+          Official industry certifications from Amazon Web Services and GitHub, paired with 8+ years of hands-on production expertise.
+        </p>
+      </div>
+
+      <div class="skills-cert-grid">
+        <!-- Left: Skills Categories -->
+        <div class="skills-categories-grid">
+
+          <!-- Category 1: Platform & Containers -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">☸️</div>
+              <h3 class="skill-cat-title">Containers &amp; Platforms</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">Red Hat OpenShift (OCP)</span>
+              <span class="skill-chip">Kubernetes / EKS</span>
+              <span class="skill-chip">MicroK8s</span>
+              <span class="skill-chip">Karpenter Autoscaling</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Helm 3</span>
+              <span class="skill-chip">StatefulSets &amp; DaemonSets</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Cloud Infrastructure -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">☁️</div>
+              <h3 class="skill-cat-title">Cloud &amp; Infrastructure</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">AWS Core (VPC, EC2, S3, RDS)</span>
+              <span class="skill-chip">AWS Control Tower</span>
+              <span class="skill-chip">CloudFront CDN</span>
+              <span class="skill-chip">Route 53</span>
+              <span class="skill-chip">AWS WAF &amp; Shield</span>
+              <span class="skill-chip">IPsec VPN Connectivity</span>
+              <span class="skill-chip">Transit Gateway</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Enterprise Data & Mesh -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">⚡</div>
+              <h3 class="skill-cat-title">Streaming, Mesh &amp; Cache</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">Apache Kafka</span>
+              <span class="skill-chip">Consumer Lag Tuning</span>
+              <span class="skill-chip">VMware Tanzu GemFire</span>
+              <span class="skill-chip">Istio Service Mesh</span>
+              <span class="skill-chip">Strict mTLS &amp; Envoy</span>
+              <span class="skill-chip">Liferay CMS Portal</span>
+              <span class="skill-chip">Zookeeper</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Observability & Logs -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">📊</div>
+              <h3 class="skill-cat-title">Observability &amp; SIEM</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">Prometheus &amp; PromQL</span>
+              <span class="skill-chip">Grafana Dashboards</span>
+              <span class="skill-chip">Grafana Loki</span>
+              <span class="skill-chip">Grafana Tempo (Tracing)</span>
+              <span class="skill-chip">AWS CloudWatch</span>
+              <span class="skill-chip">SIEM Log Correlation</span>
+              <span class="skill-chip">Alertmanager</span>
+            </div>
+          </div>
+
+          <!-- Category 5: GitOps, CI/CD & IaC -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🏗️</div>
+              <h3 class="skill-cat-title">IaC, CI/CD &amp; GitOps</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">Terraform</span>
+              <span class="skill-chip">GitHub Actions</span>
+              <span class="skill-chip">Jenkins Declarative Pipelines</span>
+              <span class="skill-chip">AWS CodePipeline</span>
+              <span class="skill-chip">Ansible &amp; Chef</span>
+              <span class="skill-chip">VMware VMDK Packaging</span>
+              <span class="skill-chip">Blue/Green &amp; Canary</span>
+            </div>
+          </div>
+
+          <!-- Category 6: DevSecOps & Languages -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🔐</div>
+              <h3 class="skill-cat-title">Security &amp; Automation</h3>
+            </div>
+            <div class="skill-pills-wrap">
+              <span class="skill-chip">Kubernetes Sealed Secrets</span>
+              <span class="skill-chip">SonarQube (SAST)</span>
+              <span class="skill-chip">OWASP ZAP &amp; Burp Suite (DAST)</span>
+              <span class="skill-chip">Trivy &amp; Black Duck</span>
+              <span class="skill-chip">Python &amp; Boto3</span>
+              <span class="skill-chip">Bash Shell Scripting</span>
+              <span class="skill-chip">pyVmomi API</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Official Certifications & AMU Education -->
+        <div class="cert-cards-column">
+
+          <!-- Credential Cards with Verified Credly Links -->
+          <!-- Cert 1: Solutions Architect -->
+          <a href="https://www.credly.com/badges/6a683a9d-70e0-48e2-af4b-965830228ddb" target="_blank" rel="noopener" class="cert-badge-card">
+            <div class="cert-badge-img-wrap">
+              <img src="assets/badges/aws-solutions-architect.png" alt="AWS Certified Solutions Architect – Associate" class="cert-badge-img">
+            </div>
+            <div class="cert-badge-content">
+              <h4 class="cert-name">AWS Certified Solutions Architect – Associate</h4>
+              <div class="cert-issuer">Amazon Web Services • Cloud Infrastructure &amp; Multi-AZ Design</div>
+              <div class="cert-verify-tag">✓ Verify on Credly ↗</div>
+            </div>
+          </a>
+
+          <!-- Cert 2: SysOps Administrator -->
+          <a href="https://www.credly.com/badges/92deb50b-89b3-448c-a6ab-832a265cdb58" target="_blank" rel="noopener" class="cert-badge-card">
+            <div class="cert-badge-img-wrap">
+              <img src="assets/badges/aws-sysops-admin.png" alt="AWS Certified SysOps Administrator – Associate" class="cert-badge-img">
+            </div>
+            <div class="cert-badge-content">
+              <h4 class="cert-name">AWS Certified SysOps Administrator – Associate</h4>
+              <div class="cert-issuer">Amazon Web Services • Systems Operations &amp; High Availability</div>
+              <div class="cert-verify-tag">✓ Verify on Credly ↗</div>
+            </div>
+          </a>
+
+          <!-- Cert 3: AI Practitioner -->
+          <a href="https://www.credly.com/badges/f1a558a0-0910-4e6e-a0c3-c25c18c9c566" target="_blank" rel="noopener" class="cert-badge-card">
+            <div class="cert-badge-img-wrap">
+              <img src="assets/badges/aws-ai-practitioner.png" alt="AWS Certified AI Practitioner" class="cert-badge-img">
+            </div>
+            <div class="cert-badge-content">
+              <h4 class="cert-name">AWS Certified AI Practitioner</h4>
+              <div class="cert-issuer">Amazon Web Services • Machine Learning &amp; Generative AI</div>
+              <div class="cert-verify-tag">✓ Verify on Credly ↗</div>
+            </div>
+          </a>
+
+          <!-- Cert 4: GitHub Foundations -->
+          <div class="cert-badge-card">
+            <div class="cert-badge-img-wrap">
+              <img src="assets/badges/github-foundations.svg" alt="GitHub Foundations" class="cert-badge-img">
+            </div>
+            <div class="cert-badge-content">
+              <h4 class="cert-name">GitHub Foundations</h4>
+              <div class="cert-issuer">GitHub • Git Collaboration, Security &amp; CI/CD Pipelines</div>
+              <div class="cert-verify-tag">✓ Verified Credential</div>
+            </div>
+          </div>
+
+          <!-- Education Card -->
+          <div class="education-box">
+            <div style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; color: var(--primary); letter-spacing: 0.05em; margin-bottom: 0.75rem;">
+              🎓 Academic Background
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">Master of Computer Science and Applications (MCA)</div>
+              <div class="edu-school">Aligarh Muslim University (AMU), Aligarh • 2016</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">B.Sc. (Hons.) Statistics</div>
+              <div class="edu-school">Aligarh Muslim University (AMU), Aligarh • 2012</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Get in Touch & Cloud Communication Dispatcher -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-section-header">
+        <div class="contact-pill-tag">
+          <span class="pulse-dot"></span>
+          <span>INITIATE TRANSMISSION • OPEN TO PLATFORM LEADERSHIP ROLES</span>
+        </div>
+        <h2 class="contact-section-title">
+          Ready to Architect Next-Generation <span class="gradient-text">Cloud Platforms?</span>
+        </h2>
+        <p class="contact-section-desc">
+          Available for Senior DevOps, Cloud Architect, and Platform Engineering leadership opportunities. Let’s discuss high-scale distributed systems, OpenShift/EKS architectures, low-latency caching grids, and resilient observability.
+        </p>
+      </div>
+
+      <div class="contact-interactive-grid">
+        <!-- Left: Direct Channels & Instant Reach Spotlight -->
+        <div class="contact-direct-card">
+          <div class="direct-card-glow-bg"></div>
+          
+          <div class="direct-card-body-flow">
+            <!-- Primary Spotlight: WhatsApp & Direct Phone Hotline -->
+            <div class="direct-whatsapp-hero-box">
+              <div class="whatsapp-hero-top">
+                <div class="whatsapp-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                </div>
+                <div class="whatsapp-hero-meta">
+                  <span class="whatsapp-tag-label">DIRECT PHONE &amp; WHATSAPP HOTLINE</span>
+                  <span class="whatsapp-sla-tag">⚡ Instant Reach • Online Now</span>
+                </div>
+              </div>
+
+              <!-- Dedicated WhatsApp Callout Link: No broken wraps, high contrast -->
+              <a href="https://wa.me/919990622210?text=Hi%20Faisal%2C%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" rel="noopener" class="whatsapp-hero-link" id="contactWhatsAppLink" title="Click to chat directly on WhatsApp">
+                <div class="wa-link-num-col">
+                  <span class="wa-link-sublabel">TAP TO CHAT ON WHATSAPP</span>
+                  <span class="phone-digits">+91 9990622210</span>
+                </div>
+                <span class="wa-badge-action">
+                  <span>Chat on WhatsApp</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </span>
+              </a>
+
+              <!-- 2 Symmetric Action Buttons -->
+              <div class="card-action-grid-2">
+                <a href="tel:+919990622210" class="btn-card-action">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <span>Call Directly</span>
+                </a>
+
+                <button type="button" class="btn-card-action copy-trigger" data-copy="+919990622210" id="btnCopyPhone">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Number</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Secondary Spotlight: Primary Direct Email -->
+            <div class="direct-email-hero-box">
+              <div class="email-hero-top">
+                <div class="email-icon-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="email-hero-meta">
+                  <span class="email-tag-label">PRIMARY CLOUD INBOX</span>
+                  <span class="email-sla-tag">⚡ Fast Response (&lt; 12h)</span>
+                </div>
+              </div>
+
+              <div class="email-hero-address">
+                <a href="mailto:hello@faisal.host" class="email-hero-link" id="heroEmailLink">hello@faisal.host</a>
+              </div>
+
+              <!-- 2 Symmetric Action Buttons -->
+              <div class="card-action-grid-2">
+                <a href="mailto:hello@faisal.host?subject=Opportunity%20Inquiry%20%7C%20Faisal%20Ansari" class="btn-card-action btn-card-action-primary">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Compose Mail ↗</span>
+                </a>
+
+                <button type="button" class="btn-card-action copy-trigger" data-copy="hello@faisal.host" id="btnCopyEmail">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Email</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Verified Channels List (Engineering Blog + Notion Notes + LinkedIn + Target Engagements) -->
+            <div class="direct-channels-list">
+              <!-- Official Technical Blog Subdomain: https://blog.faisal.host -->
+              <a href="https://blog.faisal.host" target="_blank" rel="noopener" class="direct-channel-item blog-channel-item">
+                <div class="channel-icon-wrap blog-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <div class="channel-title">Engineering Blog &amp; Tech Deep-Dives</div>
+                  <div class="channel-handle">blog.faisal.host</div>
+                </div>
+                <span class="channel-badge-pill">Read Blog ↗</span>
+              </a>
+
+              <!-- Official Notion Architecture Notes Subdomain: https://notes.faisal.host -->
+              <a href="https://notes.faisal.host" target="_blank" rel="noopener" class="direct-channel-item notion-channel-item">
+                <div class="channel-icon-wrap notion-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <div class="channel-title">Architecture Notes &amp; Runbooks (Notion)</div>
+                  <div class="channel-handle">notes.faisal.host</div>
+                </div>
+                <span class="channel-badge-pill notion-badge">Open Notion ↗</span>
+              </a>
+
+              <!-- LinkedIn Enterprise Profile -->
+              <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" rel="noopener" class="direct-channel-item">
+                <div class="channel-icon-wrap in-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <div class="channel-title">LinkedIn Enterprise Profile</div>
+                  <div class="channel-handle">linkedin.com/in/faisal-ansari-173b2176</div>
+                </div>
+                <span class="channel-arrow">↗</span>
+              </a>
+
+              <!-- Target Engagements Item -->
+              <div class="direct-channel-item static-item">
+                <div class="channel-icon-wrap status-icon">
+                  <span class="live-dot-green"></span>
+                </div>
+                <div class="channel-info">
+                  <div class="channel-title">Target Engagements</div>
+                  <div class="channel-handle">Technical Lead • Cloud Architect • Senior DevOps</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast Terminal & Resume Row (Symmetric 2-Column Grid) -->
+          <div class="direct-card-footer-actions">
+            <button class="btn-footer-action btn-term-shortcut" id="btnRunContactTerm">
+              <code>$ faisal --contact</code>
+              <span>Run in CLI ↗</span>
+            </button>
+
+            <a href="assets/Faisal_Ansari_Resume.pdf" download="Faisal_Ansari_Resume.pdf" class="btn-footer-action btn-pdf-print" style="text-decoration: none;" title="Download Faisal Ansari Resume (PDF)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Cloud Message Dispatcher -->
+        <div class="contact-dispatcher-card">
+          <div class="dispatcher-header">
+            <div class="dispatcher-title-row">
+              <div class="console-lights">
+                <span class="console-dot dot-red"></span>
+                <span class="console-dot dot-yellow"></span>
+                <span class="console-dot dot-green"></span>
+              </div>
+              <h3 class="dispatcher-title">Direct Cloud Message Dispatcher</h3>
+            </div>
+            <div class="dispatcher-endpoint-badge">
+              <span class="endpoint-method">DIRECT:</span>
+              <span class="endpoint-val">WhatsApp &amp; hello@faisal.host</span>
+            </div>
+          </div>
+
+          <form id="contactDispatcherForm" class="dispatcher-form">
+            <!-- Topic Quick Selectors -->
+            <div class="form-group">
+              <label class="form-label">SELECT INQUIRY SCOPE:</label>
+              <div class="inquiry-topics-wrap">
+                <button type="button" class="topic-chip active" data-topic="Platform Engineering & Cloud Architecture">Platform Engineering</button>
+                <button type="button" class="topic-chip" data-topic="Kubernetes / OpenShift Infrastructure">EKS &amp; OpenShift</button>
+                <button type="button" class="topic-chip" data-topic="Enterprise Observability & DevSecOps">Observability &amp; DevSecOps</button>
+                <button type="button" class="topic-chip" data-topic="Technical Leadership Opportunity">Leadership Roles</button>
+                <button type="button" class="topic-chip" data-topic="General Cloud Consultation">General Inquiries</button>
+              </div>
+            </div>
+
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label for="dispatchName" class="form-label">YOUR NAME / ORGANIZATION</label>
+                <input type="text" id="dispatchName" class="form-input" placeholder="e.g. Alex Morgan (Engineering Director)" required>
+              </div>
+              <div class="form-group">
+                <label for="dispatchEmail" class="form-label">YOUR EMAIL ADDRESS</label>
+                <input type="email" id="dispatchEmail" class="form-input" placeholder="alex@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dispatchSubject" class="form-label">SUBJECT</label>
+              <input type="text" id="dispatchSubject" class="form-input" value="Platform Engineering & Cloud Architecture | Inquiry for Faisal" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dispatchMessage" class="form-label">MESSAGE SPECIFICATION</label>
+              <textarea id="dispatchMessage" class="form-textarea" rows="4" placeholder="Brief outline of your platform requirements, technical stack, or leadership opportunity..." required></textarea>
+            </div>
+
+            <div class="dispatcher-actions-container">
+              <div class="dispatcher-primary-row">
+                <button type="button" class="btn-dispatch-whatsapp" id="btnDispatchWhatsApp">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                  <span>Transmit via WhatsApp</span>
+                </button>
+
+                <button type="submit" class="btn-dispatch-send" id="btnDispatchSend">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Transmit to Email</span>
+                </button>
+              </div>
+
+              <button type="button" class="btn-dispatch-copy" id="btnCopyDraft">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy Formatted Message Draft</span>
+              </button>
+            </div>
+
+            <div class="dispatcher-status-banner" id="dispatchStatus" style="display: none;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="brand-icon">FA</div>
+            <div class="brand-title">
+              <span class="name">Faisal Ansari</span>
+              <span class="role">Cloud &amp; Platform Architect</span>
+            </div>
+          </a>
+          <p>
+            Operating high-throughput tier-1 banking systems and multi-cloud architectures. Dedicated to zero-downtime reliability, automated security, and developer velocity.
+          </p>
+          <div style="margin-top: 1rem; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
+            <a href="https://wa.me/919990622210?text=Hi%20Faisal%2C%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" rel="noopener" style="color: #25d366; font-family: var(--font-mono); font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; font-weight: 600;">
+              <span>💬</span> +91 9990622210 (WhatsApp)
+            </a>
+            <a href="mailto:hello@faisal.host" style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;">
+              <span>✉</span> hello@faisal.host
+            </a>
+            <a href="https://blog.faisal.host" target="_blank" rel="noopener" style="color: #38bdf8; font-family: var(--font-mono); font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; font-weight: 600;">
+              <span>✍</span> blog.faisal.host
+            </a>
+            <a href="https://notes.faisal.host" target="_blank" rel="noopener" style="color: #f59e0b; font-family: var(--font-mono); font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; font-weight: 600;">
+              <span>📓</span> notes.faisal.host
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Architectures</h4>
+          <ul class="footer-links">
+            <li><a href="#topology">SBI OpenShift Platform</a></li>
+            <li><a href="#topology">AWS EKS &amp; Karpenter</a></li>
+            <li><a href="#topology">Air-Gapped Appliances</a></li>
+            <li><a href="#telemetry">LGTM Observability</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Specializations</h4>
+          <ul class="footer-links">
+            <li><a href="#case-studies">Kafka Lag Troubleshooting</a></li>
+            <li><a href="#case-studies">Tanzu GemFire Caching</a></li>
+            <li><a href="#case-studies">Istio Service Mesh</a></li>
+            <li><a href="#case-studies">Sealed Secrets CI/CD</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Direct Connect</h4>
+          <ul class="footer-links">
+            <li><a href="https://blog.faisal.host" target="_blank" rel="noopener">blog.faisal.host (Blog) ↗</a></li>
+            <li><a href="https://notes.faisal.host" target="_blank" rel="noopener">notes.faisal.host (Notion) ↗</a></li>
+            <li><a href="https://wa.me/919990622210?text=Hi%20Faisal%2C%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" rel="noopener">+91 9990622210 (WhatsApp) ↗</a></li>
+            <li><a href="mailto:hello@faisal.host">hello@faisal.host</a></li>
+            <li><a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" rel="noopener">LinkedIn Profile ↗</a></li>
+            <li><a href="#terminal">CLI Playground</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Faisal Ansari • WhatsApp: <a href="https://wa.me/919990622210" target="_blank" rel="noopener" style="color: #25d366; font-weight: 600;">+91 9990622210</a> • Direct Channel: <a href="mailto:hello@faisal.host" style="color: var(--primary-hover);">hello@faisal.host</a>
+        </div>
+        <div>
+          Deputy Manager (Systems) @ State Bank of India • Cloud &amp; Platform Architect
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Drill-Down Modal -->
+  <div class="modal-overlay" id="caseStudyModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-blue" id="modalCaseOrg"></span>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-top: 0.35rem;" id="modalCaseTitle"></h3>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tags & Key Metrics -->
+        <div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;" id="modalCaseTags"></div>
+          <div class="case-key-metrics" style="background: var(--bg-subtle); padding: 1.25rem;" id="modalCaseMetrics"></div>
+        </div>
+
+        <!-- Problem Statement -->
+        <div>
+          <h4 class="modal-section-title">
+            <span>🚨</span> The Enterprise Challenge
+          </h4>
+          <p class="modal-section-p" id="modalCaseChallenge"></p>
+        </div>
+
+        <!-- Architectural Solution -->
+        <div class="modal-highlights-box">
+          <h4 class="modal-section-title" style="color: var(--primary);">
+            <span>🛠️</span> Architectural &amp; Engineering Solution
+          </h4>
+          <p class="modal-section-p" id="modalCaseSolution"></p>
+        </div>
+
+        <!-- Impact & Measurable Outcome -->
+        <div>
+          <h4 class="modal-section-title" style="color: var(--accent-k8s);">
+            <span>📈</span> Business &amp; Operational Impact
+          </h4>
+          <p class="modal-section-p" id="modalCaseImpact"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/terminal.js"></script>
+  <script src="js/topology.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
