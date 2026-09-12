@@ -4,13 +4,13 @@
 .hero-profile-header {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.45rem;
+  gap: 1.65rem;
+  margin-bottom: 1.6rem;
   background: linear-gradient(135deg, rgba(23, 35, 56, 0.85) 0%, rgba(15, 22, 36, 0.95) 100%);
   border: 1px solid var(--border-medium);
-  padding: 1.05rem 1.65rem;
+  padding: 1.15rem 1.85rem;
   border-radius: var(--radius-xl);
-  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(14px);
   max-width: fit-content;
   transition: all var(--transition-fast);
@@ -18,7 +18,7 @@
 
 .hero-profile-header:hover {
   border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: 0 14px 40px -10px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 16px 45px -10px rgba(59, 130, 246, 0.35);
 }
 
 [data-theme="warm-light"] .hero-profile-header {
@@ -29,8 +29,8 @@
 
 .hero-avatar-wrapper {
   position: relative;
-  width: 92px;
-  height: 92px;
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
 }
 
@@ -39,27 +39,27 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary);
-  box-shadow: 0 0 24px rgba(59, 130, 246, 0.45);
+  border: 3.5px solid var(--primary);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.5);
   transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
   display: block;
 }
 
 .hero-avatar-wrapper:hover .hero-avatar-img {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 34px rgba(59, 130, 246, 0.75);
 }
 
 .avatar-status-badge {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 18px;
-  height: 18px;
+  bottom: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #10b981;
-  border: 3px solid var(--bg-canvas);
-  box-shadow: 0 0 12px #10b981;
+  border: 3.5px solid var(--bg-canvas);
+  box-shadow: 0 0 14px #10b981;
   animation: pulseRadar 2s infinite ease-in-out;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .hero-name-highlight {
-  font-size: 1.95rem;
+  font-size: 2.15rem;
   font-weight: 800;
   background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #ffffff 100%);
   -webkit-background-clip: text;
@@ -2187,21 +2187,21 @@ a.direct-channel-item:hover .channel-arrow {
 @media (max-width: 768px) {
   .hero-profile-header {
     width: 100%;
-    padding: 0.85rem 1.15rem;
-    gap: 1rem;
+    padding: 0.95rem 1.25rem;
+    gap: 1.15rem;
   }
   .hero-avatar-wrapper {
-    width: 76px;
-    height: 76px;
+    width: 88px;
+    height: 88px;
   }
   .hero-name-highlight {
-    font-size: 1.62rem;
+    font-size: 1.72rem;
   }
   .hero-role-title {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
   .hero-role-subline {
-    font-size: 0.76rem;
+    font-size: 0.78rem;
   }
   .telemetry-grid {
     grid-template-columns: 1fr;
