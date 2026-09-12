@@ -238,11 +238,13 @@ Type <span class="term-hl-purple">help</span> or click any quick command chip be
 - <span class="term-hl-dim">WhatsApp &amp; Phone:</span> <a href="https://wa.me/919990622210?text=Hi%20Faisal,%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" style="color:#10b981; text-decoration:underline; font-weight:700;">+91 9990622210</a> (Direct WhatsApp Link)
 - <span class="term-hl-dim">Direct Email:</span> <a href="mailto:hello@faisal.host" style="color:#38bdf8; text-decoration:underline; font-weight:600;">hello@faisal.host</a>
 - <span class="term-hl-dim">1:1 Mentorship:</span> <a href="https://topmate.io/clumsyfaisal" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:600;">topmate.io/clumsyfaisal</a> ↗ (Book Session)
+- <span class="term-hl-dim">GitHub Profile:</span> <a href="https://github.com/devopsfaisal" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">github.com/devopsfaisal</a> ↗ (Open-Source Repos)
+- <span class="term-hl-dim">LinkedIn:</span> <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline;">linkedin.com/in/faisal-ansari-173b2176</a> ↗
+- <span class="term-hl-dim">X (Twitter):</span> <a href="https://x.com/clumsyfaisal" target="_blank" style="color:#e2e8f0; text-decoration:underline;">x.com/clumsyfaisal</a> ↗ (@clumsyfaisal)
 - <span class="term-hl-dim">Platform Status:</span> <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:600;">https://status.faisal.host</a> ↗ (Live SLA)
 - <span class="term-hl-dim">Engineering Blog:</span> <a href="https://blog.faisal.host" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">https://blog.faisal.host</a> ↗
 - <span class="term-hl-dim">Notion Notes:</span> <a href="https://notes.faisal.host" target="_blank" style="color:#f59e0b; text-decoration:underline; font-weight:600;">https://notes.faisal.host</a> ↗
-- <span class="term-hl-dim">LinkedIn:</span> <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline;">linkedin.com/in/faisal-ansari-173b2176</a>
-- <span class="term-hl-dim">Availability:</span> Open for Senior DevOps, Cloud Architect &amp; Platform Engineering leadership roles.
+- <span class="term-hl-dim">Availability:</span> Open for Technical Lead, Cloud Architect &amp; Senior DevOps leadership roles.
 `,
 
     'status': () => {
@@ -266,6 +268,40 @@ URL: <a href="https://topmate.io/clumsyfaisal" target="_blank" style="color:#c08
     },
 
     'faisal --topmate': () => commands['topmate'](),
+
+    'github': () => {
+      setTimeout(() => window.open('https://github.com/devopsfaisal', '_blank', 'noopener,noreferrer'), 400);
+      return `
+<span class="term-hl-blue">★ Opening Faisal Ansari's GitHub Repositories ★</span>
+URL: <a href="https://github.com/devopsfaisal" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:700;">https://github.com/devopsfaisal</a> ↗
+<span class="term-hl-dim">Explore open-source DevOps repositories, Terraform AWS modules, Kubernetes manifests, and CI/CD pipelines.</span>
+`;
+    },
+
+    'faisal --github': () => commands['github'](),
+
+    'x': () => {
+      setTimeout(() => window.open('https://x.com/clumsyfaisal', '_blank', 'noopener,noreferrer'), 400);
+      return `
+<span class="term-hl-blue">★ Opening Faisal Ansari on X (Twitter) ★</span>
+URL: <a href="https://x.com/clumsyfaisal" target="_blank" style="color:#e2e8f0; text-decoration:underline; font-weight:700;">https://x.com/clumsyfaisal</a> ↗
+<span class="term-hl-dim">Tech thoughts, cloud architecture breakdowns, and DevOps engineering notes by @clumsyfaisal.</span>
+`;
+    },
+
+    'twitter': () => commands['x'](),
+    'faisal --x': () => commands['x'](),
+
+    'linkedin': () => {
+      setTimeout(() => window.open('https://linkedin.com/in/faisal-ansari-173b2176', '_blank', 'noopener,noreferrer'), 400);
+      return `
+<span class="term-hl-blue">★ Opening Faisal Ansari's LinkedIn Profile ★</span>
+URL: <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline; font-weight:700;">https://linkedin.com/in/faisal-ansari-173b2176</a> ↗
+<span class="term-hl-dim">Connect for enterprise cloud leadership, Staff/Lead DevOps roles, and technical collaborations.</span>
+`;
+    },
+
+    'faisal --linkedin': () => commands['linkedin'](),
 
     'blog': () => {
       setTimeout(() => window.open('https://blog.faisal.host', '_blank', 'noopener,noreferrer'), 400);
@@ -432,12 +468,15 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
       return commands['git status']();
     }
 
-    // Handle blog, notes, resume, status & topmate
+    // Handle blog, notes, resume, status, topmate, github, x, linkedin
     if (binary === 'blog') return commands['blog']();
     if (binary === 'notes' || binary === 'notion') return commands['notes']();
     if (binary === 'resume' || binary === 'cv') return commands['resume']();
     if (binary === 'status' || binary === 'uptime') return commands['status']();
     if (binary === 'topmate' || binary === 'mentor' || binary === 'mentorship') return commands['topmate']();
+    if (binary === 'github' || binary === 'gh') return commands['github']();
+    if (binary === 'x' || binary === 'twitter' || binary === 'tweet') return commands['x']();
+    if (binary === 'linkedin') return commands['linkedin']();
 
     // Handle Unix utilities
     if (binary === 'whoami') return commands['whoami']();
