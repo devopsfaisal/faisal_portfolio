@@ -237,7 +237,7 @@ Type <span class="term-hl-purple">help</span> or click any quick command chip be
 <span class="term-hl-blue">Get in Touch / Direct Channels:</span>
 - <span class="term-hl-dim">WhatsApp &amp; Phone:</span> <a href="https://wa.me/919990622210?text=Hi%20Faisal,%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" style="color:#10b981; text-decoration:underline; font-weight:700;">+91 9990622210</a> (Direct WhatsApp Link)
 - <span class="term-hl-dim">Direct Email:</span> <a href="mailto:hello@faisal.host" style="color:#38bdf8; text-decoration:underline; font-weight:600;">hello@faisal.host</a>
-- <span class="term-hl-dim">1:1 Mentorship:</span> <a href="https://topmate.io/faisal_ansari" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:600;">topmate.io/faisal_ansari</a> ↗ (Book Session)
+- <span class="term-hl-dim">1:1 Mentorship:</span> <a href="https://topmate.io/clumsyfaisal" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:600;">topmate.io/clumsyfaisal</a> ↗ (Book Session)
 - <span class="term-hl-dim">Platform Status:</span> <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:600;">https://status.faisal.host</a> ↗ (Live SLA)
 - <span class="term-hl-dim">Engineering Blog:</span> <a href="https://blog.faisal.host" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">https://blog.faisal.host</a> ↗
 - <span class="term-hl-dim">Notion Notes:</span> <a href="https://notes.faisal.host" target="_blank" style="color:#f59e0b; text-decoration:underline; font-weight:600;">https://notes.faisal.host</a> ↗
@@ -257,10 +257,10 @@ URL: <a href="https://status.faisal.host" target="_blank" style="color:#10b981; 
     'faisal --status': () => commands['status'](),
 
     'topmate': () => {
-      setTimeout(() => window.open('https://topmate.io/faisal_ansari', '_blank', 'noopener,noreferrer'), 400);
+      setTimeout(() => window.open('https://topmate.io/clumsyfaisal', '_blank', 'noopener,noreferrer'), 400);
       return `
 <span class="term-hl-blue">★ Opening Topmate 1:1 Mentorship Booking ★</span>
-URL: <a href="https://topmate.io/faisal_ansari" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:700;">https://topmate.io/faisal_ansari</a> ↗
+URL: <a href="https://topmate.io/clumsyfaisal" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:700;">https://topmate.io/clumsyfaisal</a> ↗
 <span class="term-hl-dim">Book a 1:1 session for DevOps career guidance, AWS architecture reviews, Kubernetes troubleshooting, and interview prep.</span>
 `;
     },
