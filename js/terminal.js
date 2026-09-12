@@ -248,9 +248,9 @@ Type <span class="term-hl-purple">help</span> or click any quick command chip be
     'status': () => {
       setTimeout(() => window.open('https://status.faisal.host', '_blank', 'noopener,noreferrer'), 400);
       return `
-<span class="term-hl-blue">★ Opening Faisal Ansari's Platform Status ★</span>
+<span class="term-hl-blue">★ Opening Faisal Ansari's System Status ★</span>
 URL: <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:700;">https://status.faisal.host</a> ↗
-<span class="term-hl-dim">Live SLA uptime, incident history, and synthetic monitoring metrics for enterprise infrastructure services.</span>
+<span class="term-hl-dim">Live SLA uptime, incident history, and synthetic latency metrics for hosted systems and services (faisal.host, blog, notes).</span>
 `;
     },
 
