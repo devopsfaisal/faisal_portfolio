@@ -449,6 +449,15 @@ a:hover {
   white-space: nowrap;
   flex-shrink: 0;
   line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.status-indicator:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: var(--accent-k8s);
+  transform: translateY(-1px);
 }
 
 .status-dot {

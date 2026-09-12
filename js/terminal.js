@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="term-hl-green">grafana alerts</span>        Check production SLI/SLO threshold health status
   <span class="term-hl-cyan">docker ps</span>             Inspect active container runtimes
   <span class="term-hl-cyan">helm list</span>             List deployed enterprise Helm releases
+  <span class="term-hl-green">status</span>                Inspect live platform SLA uptime (status.faisal.host)
+  <span class="term-hl-purple">topmate</span>               Book 1:1 DevOps mentorship session (topmate.io)
   <span class="term-hl-purple">blog</span>                  Open engineering blog & deep dives (blog.faisal.host)
   <span class="term-hl-purple">notes</span>                 Open Notion architecture runbooks & notes (notes.faisal.host)
   <span class="term-hl-purple">resume</span>                Download official PDF resume (Faisal_Ansari_Resume.pdf)
@@ -235,11 +237,35 @@ Type <span class="term-hl-purple">help</span> or click any quick command chip be
 <span class="term-hl-blue">Get in Touch / Direct Channels:</span>
 - <span class="term-hl-dim">WhatsApp &amp; Phone:</span> <a href="https://wa.me/919990622210?text=Hi%20Faisal,%20I%20came%20across%20your%20cloud%20portfolio%20and%20would%20love%20to%20connect." target="_blank" style="color:#10b981; text-decoration:underline; font-weight:700;">+91 9990622210</a> (Direct WhatsApp Link)
 - <span class="term-hl-dim">Direct Email:</span> <a href="mailto:hello@faisal.host" style="color:#38bdf8; text-decoration:underline; font-weight:600;">hello@faisal.host</a>
+- <span class="term-hl-dim">1:1 Mentorship:</span> <a href="https://topmate.io/faisal_ansari" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:600;">topmate.io/faisal_ansari</a> ↗ (Book Session)
+- <span class="term-hl-dim">Platform Status:</span> <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:600;">https://status.faisal.host</a> ↗ (Live SLA)
 - <span class="term-hl-dim">Engineering Blog:</span> <a href="https://blog.faisal.host" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">https://blog.faisal.host</a> ↗
 - <span class="term-hl-dim">Notion Notes:</span> <a href="https://notes.faisal.host" target="_blank" style="color:#f59e0b; text-decoration:underline; font-weight:600;">https://notes.faisal.host</a> ↗
 - <span class="term-hl-dim">LinkedIn:</span> <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline;">linkedin.com/in/faisal-ansari-173b2176</a>
 - <span class="term-hl-dim">Availability:</span> Open for Senior DevOps, Cloud Architect &amp; Platform Engineering leadership roles.
 `,
+
+    'status': () => {
+      setTimeout(() => window.open('https://status.faisal.host', '_blank', 'noopener,noreferrer'), 400);
+      return `
+<span class="term-hl-blue">★ Opening Faisal Ansari's Platform Status ★</span>
+URL: <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:700;">https://status.faisal.host</a> ↗
+<span class="term-hl-dim">Live SLA uptime, incident history, and synthetic monitoring metrics for enterprise infrastructure services.</span>
+`;
+    },
+
+    'faisal --status': () => commands['status'](),
+
+    'topmate': () => {
+      setTimeout(() => window.open('https://topmate.io/faisal_ansari', '_blank', 'noopener,noreferrer'), 400);
+      return `
+<span class="term-hl-blue">★ Opening Topmate 1:1 Mentorship Booking ★</span>
+URL: <a href="https://topmate.io/faisal_ansari" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:700;">https://topmate.io/faisal_ansari</a> ↗
+<span class="term-hl-dim">Book a 1:1 session for DevOps career guidance, AWS architecture reviews, Kubernetes troubleshooting, and interview prep.</span>
+`;
+    },
+
+    'faisal --topmate': () => commands['topmate'](),
 
     'blog': () => {
       setTimeout(() => window.open('https://blog.faisal.host', '_blank', 'noopener,noreferrer'), 400);
@@ -406,10 +432,12 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
       return commands['git status']();
     }
 
-    // Handle blog, notes & resume
+    // Handle blog, notes, resume, status & topmate
     if (binary === 'blog') return commands['blog']();
     if (binary === 'notes' || binary === 'notion') return commands['notes']();
     if (binary === 'resume' || binary === 'cv') return commands['resume']();
+    if (binary === 'status' || binary === 'uptime') return commands['status']();
+    if (binary === 'topmate' || binary === 'mentor' || binary === 'mentorship') return commands['topmate']();
 
     // Handle Unix utilities
     if (binary === 'whoami') return commands['whoami']();
@@ -436,6 +464,8 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
       if (argStr.includes('blog')) return commands['blog']();
       if (argStr.includes('note') || argStr.includes('notion')) return commands['notes']();
       if (argStr.includes('resume') || argStr.includes('cv')) return commands['resume']();
+      if (argStr.includes('status')) return commands['status']();
+      if (argStr.includes('topmate') || argStr.includes('mentor')) return commands['topmate']();
       if (argStr.includes('contact') || argStr.includes('email') || argStr.includes('linkedin')) return commands['faisal --contact']();
       if (argStr.includes('welcome')) return commands['faisal --welcome']();
       return `
@@ -444,6 +474,8 @@ Options:
   --experience      Career timeline & roles (SBI, Incedo, Binmile, ECL)
   --certifications  AWS Solutions Architect, SysOps, AI, GitHub
   --resume          Download official PDF resume (Faisal_Ansari_Resume.pdf)
+  --status          Check live infrastructure SLA (status.faisal.host)
+  --topmate         Book 1:1 mentorship session (topmate.io)
   --blog            Read engineering deep-dives (blog.faisal.host)
   --notes           Read Notion architecture notes (notes.faisal.host)
   --contact         Direct WhatsApp, email, LinkedIn and contact info

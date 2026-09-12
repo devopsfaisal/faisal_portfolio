@@ -1566,6 +1566,61 @@ a.direct-channel-item:hover {
   color: #0b0f19;
 }
 
+/* Topmate Mentorship Channel Highlight */
+.topmate-channel-item {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.topmate-channel-item:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.25);
+}
+
+.channel-icon-wrap.topmate-icon {
+  background: rgba(168, 85, 247, 0.16);
+  color: var(--accent-purple);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.channel-badge-pill.topmate-badge {
+  color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.topmate-channel-item:hover .channel-badge-pill.topmate-badge {
+  background: var(--accent-purple);
+  color: #ffffff;
+}
+
+/* Status Monitor Channel Highlight */
+.status-channel-item {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.status-channel-item:hover {
+  border-color: var(--accent-k8s);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.25);
+}
+
+.channel-icon-wrap.status-monitor-icon {
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.channel-badge-pill.status-badge {
+  color: var(--accent-k8s);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.status-channel-item:hover .channel-badge-pill.status-badge {
+  background: var(--accent-k8s);
+  color: #ffffff;
+}
+
 .channel-icon-wrap.in-icon {
   background: rgba(10, 102, 194, 0.18);
   color: #38bdf8;
