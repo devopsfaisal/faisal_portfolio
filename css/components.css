@@ -1,6 +1,151 @@
-/* ==========================================================================
-   COMPONENTS.CSS — SPECIALIZED INTERACTIVE ARCHITECTURE COMPONENTS
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   0. HERO PROFILE & EXECUTIVE IDENTITY HEADER
+   -------------------------------------------------------------------------- */
+.hero-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.35rem;
+  background: linear-gradient(135deg, rgba(23, 35, 56, 0.75) 0%, rgba(15, 22, 36, 0.9) 100%);
+  border: 1px solid var(--border-medium);
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  max-width: fit-content;
+  transition: all var(--transition-fast);
+}
+
+.hero-profile-header:hover {
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 12px 35px -10px rgba(59, 130, 246, 0.25);
+}
+
+[data-theme="warm-light"] .hero-profile-header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-color: rgba(203, 213, 225, 0.95);
+  box-shadow: 0 8px 24px -6px rgba(100, 116, 139, 0.15);
+}
+
+.hero-avatar-wrapper {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  flex-shrink: 0;
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.35);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
+  display: block;
+}
+
+.hero-avatar-wrapper:hover .hero-avatar-img {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.6);
+}
+
+.avatar-status-badge {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2.5px solid var(--bg-canvas);
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseRadar 2s infinite ease-in-out;
+}
+
+.hero-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-greeting {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  line-height: 1.2;
+}
+
+.greeting-wave {
+  font-size: 1.35rem;
+  display: inline-block;
+  animation: waveHand 2.5s infinite ease-in-out;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.greeting-text {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.hero-name-highlight {
+  font-size: 1.68rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="warm-light"] .hero-name-highlight {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-role-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.hero-role-subline {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.role-location {
+  color: var(--text-muted);
+}
+
+.role-separator {
+  color: var(--border-medium);
+}
+
+.role-availability {
+  color: #34d399;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
 
 /* --------------------------------------------------------------------------
    1. INTERACTIVE TERMINAL COMPONENT (LIGHT macOS CLI)
@@ -2040,6 +2185,24 @@ a.direct-channel-item:hover .channel-arrow {
 }
 
 @media (max-width: 768px) {
+  .hero-profile-header {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    gap: 0.85rem;
+  }
+  .hero-avatar-wrapper {
+    width: 62px;
+    height: 62px;
+  }
+  .hero-name-highlight {
+    font-size: 1.45rem;
+  }
+  .hero-role-title {
+    font-size: 0.85rem;
+  }
+  .hero-role-subline {
+    font-size: 0.74rem;
+  }
   .telemetry-grid {
     grid-template-columns: 1fr;
   }
