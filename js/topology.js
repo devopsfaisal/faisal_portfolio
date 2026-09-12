@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const topologies = {
     portfolio: {
-      name: 'faisal.host Production Cloud & Edge Architecture',
+      name: 'Edge-Native Global Platform',
       render: renderPortfolioTopology,
       defaultDetails: {
-        title: 'faisal.host Production Cloud Infrastructure & Edge Ecosystem',
-        desc: 'Complete end-to-end cloud platform hosting Faisal’s portfolio. Powered by GitHub Actions GitOps CI/CD, AWS S3 origin storage with OAC, AWS CloudFront global edge CDN with Route 53 DNS and ACM TLS 1.3, automated status monitoring (status.faisal.host), and zero-bloat client simulation engines.',
+        title: 'Edge-Native Production Cloud Infrastructure & Global CDN',
+        desc: 'Resilient multi-layer cloud architecture powering this platform at the edge. Engineered with automated GitHub Actions GitOps CI/CD, Amazon S3 origin storage secured with Origin Access Control (OAC), AWS CloudFront global edge CDN with Route 53 DNSSEC and ACM TLS 1.3, automated status health-checks (status.faisal.host), and zero-bloat vanilla client simulation engines.',
         chips: ['AWS CloudFront', 'Amazon S3', 'Route 53', 'GitHub Actions', 'status.faisal.host', 'Zero-Framework']
       }
     },
