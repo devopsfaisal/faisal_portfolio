@@ -22,15 +22,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
 
-      - name: Deploy Static Assets to S3 (Immutable Long-Term Cache)
+      - name: Deploy Media & Documents to S3 (Immutable Long-Term Cache)
         run: |
-          echo "--> Uploading static assets (css, js, assets) with 1-year cache..."
+          echo "--> Uploading static media assets (assets/*) with 1-year cache..."
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
+            --exclude "*" \
+            --include "assets/*" \
+            --cache-control "public, max-age=31536000, immutable" \
+            --delete
+
+      - name: Deploy Code Assets (CSS/JS) to S3 (Fast Revalidation)
+        run: |
+          echo "--> Uploading CSS & JS code assets with must-revalidate..."
           aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
             --exclude "*" \
             --include "css/*" \
             --include "js/*" \
-            --include "assets/*" \
-            --cache-control "public, max-age=31536000, immutable" \
+            --cache-control "public, max-age=0, must-revalidate" \
             --delete
 
       - name: Deploy HTML & Root Files to S3 (Immediate Revalidation)
