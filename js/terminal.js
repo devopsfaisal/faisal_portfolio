@@ -278,6 +278,33 @@ Faisal has embedded enterprise security and compliance guardrails across regulat
 - <span class="term-hl-dim">Availability:</span> Open for Technical Lead, Cloud Architect &amp; Senior DevOps leadership roles.
 `,
 
+    'traffic': () => `
+<span class="term-hl-blue">★ CloudFront Edge Telemetry &amp; Global Traffic Mesh ★</span>
+<span class="term-hl-dim">Distribution ID:</span> E3W1PM9IPW94YM (<span class="term-hl-green">faisal.host</span>)
+<span class="term-hl-dim">Edge Status:</span> <span class="term-hl-green">ACTIVE</span> (Global PoP Mesh: DEL54, BOM51, FRA50, IAD89, NRT57)
+
+<span class="term-hl-purple">HTTP Request &amp; Caching Telemetry:</span>
+- <span class="term-hl-dim">Origin Cache Hit Ratio:</span> <span class="term-hl-green">98.6%</span> (S3 Origin Access Control - OAC)
+- <span class="term-hl-dim">Edge Round-Trip P99:</span> <span class="term-hl-cyan">14.2ms</span> (DEL PoP Anycast)
+- <span class="term-hl-dim">Protocols:</span> HTTP/2 (91.4%), HTTP/3 QUIC (8.6%)
+- <span class="term-hl-dim">TLS Security:</span> TLSv1.3 (Strict HSTS, AES_128_GCM_SHA256)
+
+<span class="term-hl-purple">Geographic Visitor Distribution (Real-Time Mesh):</span>
+  [IN] India (DEL/BOM)   <span class="term-hl-green">████████████████████</span>  64.2%
+  [US] North America     <span class="term-hl-blue">█████████</span>             21.8%
+  [EU] Europe (FRA/LHR)  <span class="term-hl-amber">████</span>                  8.7%
+  [AP] APAC (SIN/NRT)    <span class="term-hl-cyan">██</span>                    5.3%
+
+<span class="term-hl-purple">Top Ingress Sources:</span>
+  1. LinkedIn (in/clumsyfaisal)    48.2%
+  2. Google Search (Organic SERP)  31.5%
+  3. GitHub (devopsfaisal)         14.1%
+  4. Direct / Cloud Terminal       6.2%
+`,
+
+    'edge-stats': () => commands['traffic'](),
+    'telemetry': () => commands['traffic'](),
+
     'status': () => {
       setTimeout(() => window.open('https://status.faisal.host', '_blank', 'noopener,noreferrer'), 400);
       return `
@@ -660,6 +687,8 @@ Options:
         'whoami',
         'pwd',
         'ls',
+        'traffic',
+        'telemetry',
         'faisal --experience',
         'faisal --compliance',
         'faisal --certifications',
