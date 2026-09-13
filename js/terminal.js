@@ -745,4 +745,11 @@ Options:
       });
     });
   }
+
+  // Focus input when clicking terminal window
+  terminalBody.addEventListener('click', () => {
+    if (!window.getSelection().toString()) {
+      terminalInput.focus();
+    }
+  });
 });
