@@ -50,6 +50,7 @@ jobs:
             --include "robots.txt" \
             --include "sitemap.xml" \
             --include "favicon.ico" \
+            --include "site.webmanifest" \
             --cache-control "public, max-age=0, must-revalidate"
 
       - name: Invalidate CloudFront Cache

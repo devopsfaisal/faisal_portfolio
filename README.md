@@ -34,13 +34,13 @@ The portfolio is hosted on a highly available, enterprise-grade serverless archi
 
 To enable automated zero-downtime deployments via GitHub Actions, configure the following secrets in your repository (**Settings** ➔ **Secrets and variables** ➔ **Actions**):
 
-| Secret Name | Description | Example / Note |
+| Secret Name | Description | Required |
 | :--- | :--- | :--- |
-| `AWS_ACCESS_KEY_ID` | IAM User Access Key ID with S3 & CloudFront permissions | `AKIAIOSFODNN7EXAMPLE` |
-| `AWS_SECRET_ACCESS_KEY` | IAM User Secret Access Key | `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY` |
-| `AWS_REGION` | AWS Region of your S3 Bucket | `us-east-1` (or `ap-south-1`) |
-| `S3_BUCKET_NAME` | Name of your private S3 bucket | `faisal.host` |
-| `CLOUDFRONT_DISTRIBUTION_ID` | Your CloudFront distribution identifier | `E1A2B3C4D5E6F7` |
+| `AWS_ACCESS_KEY_ID` | IAM User Access Key ID with S3 & CloudFront permissions | Yes |
+| `AWS_SECRET_ACCESS_KEY` | IAM User Secret Access Key | Yes |
+| `AWS_REGION` | AWS Region of your S3 Bucket (e.g., `us-east-1` or `ap-south-1`) | Yes |
+| `S3_BUCKET_NAME` | Name of your private S3 bucket | Yes |
+| `CLOUDFRONT_DISTRIBUTION_ID` | Your CloudFront distribution identifier | Yes |
 
 ### Minimum IAM Permissions Required for GitHub Actions User
 
