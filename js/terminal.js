@@ -270,7 +270,7 @@ Faisal has embedded enterprise security and compliance guardrails across regulat
 - <span class="term-hl-dim">Direct Email:</span> <a href="mailto:hello@faisal.host" style="color:#38bdf8; text-decoration:underline; font-weight:600;">hello@faisal.host</a>
 - <span class="term-hl-dim">1:1 Mentorship:</span> <a href="https://topmate.io/clumsyfaisal" target="_blank" style="color:#c084fc; text-decoration:underline; font-weight:600;">topmate.io/clumsyfaisal</a> ↗ (Book Session)
 - <span class="term-hl-dim">GitHub Profile:</span> <a href="https://github.com/devopsfaisal" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">github.com/devopsfaisal</a> ↗ (Open-Source Repos)
-- <span class="term-hl-dim">LinkedIn:</span> <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline;">linkedin.com/in/faisal-ansari-173b2176</a> ↗
+- <span class="term-hl-dim">LinkedIn:</span> <a href="https://linkedin.com/in/clumsyfaisal" target="_blank" style="color:#3b82f6; text-decoration:underline;">linkedin.com/in/clumsyfaisal</a> ↗
 - <span class="term-hl-dim">X (Twitter):</span> <a href="https://x.com/clumsyfaisal" target="_blank" style="color:#e2e8f0; text-decoration:underline;">x.com/clumsyfaisal</a> ↗ (@clumsyfaisal)
 - <span class="term-hl-dim">Platform Status:</span> <a href="https://status.faisal.host" target="_blank" style="color:#10b981; text-decoration:underline; font-weight:600;">https://status.faisal.host</a> ↗ (Live SLA)
 - <span class="term-hl-dim">Engineering Blog:</span> <a href="https://blog.faisal.host" target="_blank" style="color:#38bdf8; text-decoration:underline; font-weight:600;">https://blog.faisal.host</a> ↗
@@ -324,10 +324,10 @@ URL: <a href="https://x.com/clumsyfaisal" target="_blank" style="color:#e2e8f0; 
     'faisal --x': () => commands['x'](),
 
     'linkedin': () => {
-      setTimeout(() => window.open('https://linkedin.com/in/faisal-ansari-173b2176', '_blank', 'noopener,noreferrer'), 400);
+      setTimeout(() => window.open('https://linkedin.com/in/clumsyfaisal', '_blank', 'noopener,noreferrer'), 400);
       return `
 <span class="term-hl-blue">★ Opening Faisal Ansari's LinkedIn Profile ★</span>
-URL: <a href="https://linkedin.com/in/faisal-ansari-173b2176" target="_blank" style="color:#3b82f6; text-decoration:underline; font-weight:700;">https://linkedin.com/in/faisal-ansari-173b2176</a> ↗
+URL: <a href="https://linkedin.com/in/clumsyfaisal" target="_blank" style="color:#3b82f6; text-decoration:underline; font-weight:700;">https://linkedin.com/in/clumsyfaisal</a> ↗
 <span class="term-hl-dim">Connect for enterprise cloud leadership, Staff/Lead DevOps roles, and technical collaborations.</span>
 `;
     },
