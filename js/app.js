@@ -82,11 +82,11 @@ const caseStudiesData = {
     org: 'Incedo',
     category: 'cicd',
     shortDesc: 'Portable application appliance delivered as a self-contained VMDK for VMware & Nutanix on-premise enterprise environments.',
-    metrics: { 'Deploy Time': '<30 mins', 'Air-Gap Ready': '100%', 'Package Size': 'Optimized', 'Customer Adoption': 'Multi-Enterprise' },
-    tags: ['MicroK8s', 'VMware VMDK', 'Nutanix', 'Bash Automation', 'Helm Charts'],
-    challenge: 'Enterprise financial and industrial clients required running complex multi-container platforms within air-gapped on-premise data centers without internet access or manual dependency installation.',
+    metrics: { 'Deploy Time': '<30 mins', 'Air-Gap Ready': '100%', 'Compliance': 'HIPAA & GDPR', 'Customer Adoption': 'Multi-Enterprise' },
+    tags: ['MicroK8s', 'VMware VMDK', 'Nutanix', 'Bash Automation', 'HIPAA/GDPR Ready'],
+    challenge: 'Enterprise financial and industrial clients required running complex multi-container platforms within air-gapped on-premise data centers under strict data sovereignty, HIPAA, and GDPR controls without internet access.',
     solution: 'Engineered Bash/Jenkins automation workflows that bundled container images from AWS S3, manifests, MicroK8s runtime, certificates, and Helm-based Prometheus/Kafka monitoring into a bootable VMDK appliance compatible with VMware and Nutanix.',
-    impact: 'Reduced customer on-prem deployment time from multiple days of manual provisioning to a self-configuring 30-minute automated VM import workflow.'
+    impact: 'Reduced customer on-prem deployment time from multiple days of manual provisioning to a self-configuring 30-minute automated VM import workflow while enforcing enterprise compliance.'
   },
 
   'case-sealed-secrets': {
@@ -105,22 +105,22 @@ const caseStudiesData = {
     title: 'Multi-Stage DevSecOps Pipeline & Container Hardening',
     org: 'Binmile Technologies / Eye Care Leaders',
     category: 'devsecops',
-    shortDesc: 'Integrated SAST, DAST, and container vulnerability scanning into Jenkins and GitHub Actions pipelines.',
-    metrics: { 'Critical CVEs': '0 Allowed', 'Pipeline Speed': '<7 mins', 'Compliance': 'HIPAA & GDPR', 'Audit Ready': 'Yes' },
-    tags: ['SonarQube (SAST)', 'OWASP ZAP (DAST)', 'Trivy & Black Duck', 'AWS IAM', 'SAML SSO'],
-    challenge: 'Balancing rapid automated releases with strict healthcare (HIPAA) and enterprise regulatory standards requiring zero unresolved high/critical CVEs prior to production deployment.',
+    shortDesc: 'Integrated SAST, DAST, and container vulnerability scanning into Jenkins and GitHub Actions pipelines under global regulatory standards.',
+    metrics: { 'Critical CVEs': '0 Allowed', 'Pipeline Speed': '<7 mins', 'Compliance': 'GDPR, HIPAA, SAMA, DPDPA', 'Audit Ready': 'Yes' },
+    tags: ['SonarQube (SAST)', 'OWASP ZAP (DAST)', 'Trivy & Black Duck', 'GDPR & HIPAA', 'SAMA & DPDPA'],
+    challenge: 'Balancing rapid automated releases with strict global healthcare and financial compliance standards (GDPR, HIPAA, SAMA, DPDPA) requiring zero unresolved high/critical CVEs prior to production deployment.',
     solution: 'Embedded automated SAST (SonarQube) for code quality and secret scanning, DAST (OWASP ZAP) for dynamic API endpoint testing, and container scanning (Trivy & Black Duck) directly into CI/CD release gates. Paired with SAML SSO via Google Workspace & AWS Identity Center.',
-    impact: 'Prevented vulnerable code and container images from ever reaching production environments, passing external HIPAA/SOC2 compliance audits on the first pass.'
+    impact: 'Prevented vulnerable code and container images from ever reaching production environments, passing external GDPR, HIPAA, SAMA, and DPDPA compliance audits on the first pass.'
   },
 
   'case-vmware-migration': {
     title: 'Automated VMware Cloud VM Migration & pyVmomi Integration',
     org: 'Eye Care Leaders / Sightview',
     category: 'aws',
-    shortDesc: 'Automated hypervisor VM migration pipelines using Python pyVmomi API, Jenkins Declarative, Chef, and Terraform under HIPAA compliance.',
+    shortDesc: 'Automated hypervisor VM migration pipelines using Python pyVmomi API, Jenkins Declarative, Chef, and Terraform under HIPAA and GDPR compliance.',
     metrics: { 'Migration Window': '-70%', 'pyVmomi Automation': '100%', 'Compliance': 'HIPAA & GDPR', 'Availability': '99.9%' },
-    tags: ['Python pyVmomi', 'VMware vCenter', 'Jenkins Declarative', 'Terraform', 'Chef', 'AWS Cloud'],
-    challenge: 'Migrating legacy VMware virtual machine workloads to AWS cloud while maintaining strict configuration consistency and zero unplanned clinical system downtime under stringent healthcare (HIPAA) requirements.',
+    tags: ['Python pyVmomi', 'VMware vCenter', 'Jenkins Declarative', 'Terraform', 'Chef', 'HIPAA & GDPR'],
+    challenge: 'Migrating legacy VMware virtual machine workloads to AWS cloud while maintaining strict configuration consistency and zero unplanned clinical system downtime under stringent healthcare (HIPAA & GDPR) requirements.',
     solution: 'Engineered Python automation scripts leveraging the pyVmomi API for programmatic vCenter orchestration. Combined with Jenkins declarative pipelines, Chef configuration management, and Terraform to automate pre-flight validation, disk image conversion, and VPC networking.',
     impact: 'Decreased per-instance VM migration windows by 70%, eliminated manual operator configuration errors, and successfully migrated mission-critical healthcare environments with zero data loss.'
   }

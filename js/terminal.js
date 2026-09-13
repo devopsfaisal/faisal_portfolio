@@ -210,18 +210,49 @@ Type <span class="term-hl-purple">help</span> or click any quick command chip be
 `,
 
     'faisal --experience': () => `
-<span class="term-hl-blue">Faisal Ansari — Career Milestones:</span>
+<span class="term-hl-blue">Faisal Ansari — Career Milestones &amp; Compliance Frameworks:</span>
 1. <span class="term-hl-green">State Bank of India (SBI)</span> | Deputy Manager (Systems) [Sep 2025 – Present]
-   - Enterprise platform ops, in-memory cache fabric, Kafka consumer lag optimization, Istio mesh, RBI/DPDPA compliance.
+   - Enterprise platform ops, in-memory cache fabric, Kafka consumer lag optimization, Istio mesh.
+   - <span class="term-hl-amber">Compliance:</span> RBI Regulatory Mandates &amp; Digital Personal Data Protection Act (DPDPA).
 2. <span class="term-hl-green">Incedo</span> | Technical Lead (DevOps) [Jan 2025 – Sep 2025]
-   - Air-gapped on-prem K8s appliance (VMDK), Sealed Secrets automation, AWS & Terraform CI/CD.
+   - Air-gapped on-prem K8s appliance (VMDK), Sealed Secrets automation, AWS &amp; Terraform CI/CD.
+   - <span class="term-hl-amber">Compliance:</span> Applied HIPAA &amp; GDPR requirements across Kubernetes and cloud workflows.
 3. <span class="term-hl-green">Binmile Technologies</span> | Sr. DevOps Engineer (AWS) [Jun 2024 – Jan 2025]
    - EKS + Karpenter dynamic node autoscaling, LGTM (Prometheus, Loki, Tempo, Grafana), DevSecOps.
+   - <span class="term-hl-amber">Compliance:</span> Embedded security controls adhering to GDPR, HIPAA, SAMA &amp; DPDPA standards.
 4. <span class="term-hl-green">Eye Care Leaders / Sightview</span> | DevOps Engineer (AWS) [Feb 2023 – May 2024]
-   - Python pyVmomi automation, Terraform, Jenkins Declarative pipelines, HIPAA/GDPR.
-5. <span class="term-hl-green">Viiking Paymaster & Indicsoft</span> | DevOps / Python [2018 – 2023]
+   - Python pyVmomi automation, AWS Control Tower, Jenkins Declarative pipelines, S3-to-RDS backup/restore.
+   - <span class="term-hl-amber">Compliance:</span> Enforced healthcare security in compliance with HIPAA &amp; GDPR.
+5. <span class="term-hl-green">Viiking Paymaster &amp; Indicsoft</span> | DevOps / Python [2018 – 2023]
    - FinTech ERP, Docker/Nginx, AWS cost optimization, Linux systems engineering.
 `,
+
+    'faisal --compliance': () => `
+<span class="term-hl-blue">★ Global Regulatory Compliance &amp; Governance Matrix ★</span>
+Faisal has embedded enterprise security and compliance guardrails across regulated environments:
+
+1. <span class="term-hl-green">DPDPA (Digital Personal Data Protection Act)</span>
+   - <span class="term-hl-cyan">Applied at:</span> State Bank of India (SBI) &amp; Binmile Technologies
+   - <span class="term-hl-dim">Scope:</span> Data privacy governance, data localization, banking audit logging, encrypted storage.
+
+2. <span class="term-hl-green">GDPR (General Data Protection Regulation)</span>
+   - <span class="term-hl-cyan">Applied at:</span> Binmile Technologies, Incedo &amp; Eye Care Leaders (Sightview)
+   - <span class="term-hl-dim">Scope:</span> Strict cross-border data protection, elimination of plaintext secrets, container vulnerability gates.
+
+3. <span class="term-hl-green">HIPAA (Health Insurance Portability and Accountability Act)</span>
+   - <span class="term-hl-cyan">Applied at:</span> Eye Care Leaders (Sightview), Incedo &amp; Binmile Technologies
+   - <span class="term-hl-dim">Scope:</span> ePHI safeguards, encrypted backup automation (S3-to-RDS), AWS SSO/Guacamole isolated bastion access.
+
+4. <span class="term-hl-green">SAMA (Saudi Central Bank Cybersecurity &amp; Governance)</span>
+   - <span class="term-hl-cyan">Applied at:</span> Binmile Technologies
+   - <span class="term-hl-dim">Scope:</span> Enterprise financial cloud hardening, secure hybrid connectivity, SAST/DAST CI/CD policies.
+
+5. <span class="term-hl-green">RBI Regulatory Guidelines</span>
+   - <span class="term-hl-cyan">Applied at:</span> State Bank of India (SBI)
+   - <span class="term-hl-dim">Scope:</span> Mission-critical platform availability (99.999%), mutual TLS (mTLS) zero trust, controlled change management.
+`,
+
+    'compliance': () => commands['faisal --compliance'](),
 
     'faisal --certifications': () => `
 <span class="term-hl-blue">Verified Enterprise Certifications &amp; Badges:</span>
@@ -499,6 +530,7 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
     // Handle faisal personal CLI
     if (binary === 'faisal') {
       if (argStr.includes('exp') || argStr.includes('experience')) return commands['faisal --experience']();
+      if (argStr.includes('comp') || argStr.includes('gdpr') || argStr.includes('hipaa') || argStr.includes('sama') || argStr.includes('dpdpa')) return commands['faisal --compliance']();
       if (argStr.includes('cert') || argStr.includes('badge')) return commands['faisal --certifications']();
       if (argStr.includes('blog')) return commands['blog']();
       if (argStr.includes('note') || argStr.includes('notion')) return commands['notes']();
@@ -511,6 +543,7 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
 <span class="term-hl-blue">Faisal Ansari — Cloud &amp; Platform Architect</span>
 Options:
   --experience      Career timeline & roles (SBI, Incedo, Binmile, ECL)
+  --compliance      Global governance matrix (GDPR, DPDPA, HIPAA, SAMA, RBI)
   --certifications  AWS Solutions Architect, SysOps, AI, GitHub
   --resume          Download official PDF resume (Faisal_Ansari_Resume.pdf)
   --status          Check live infrastructure SLA (status.faisal.host)
@@ -628,6 +661,7 @@ Options:
         'pwd',
         'ls',
         'faisal --experience',
+        'faisal --compliance',
         'faisal --certifications',
         'faisal --contact',
         'help',
