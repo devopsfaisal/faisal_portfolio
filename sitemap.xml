@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://faisal.host/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://faisal.host/assets/faisal-hero-portrait.jpg</image:loc>
+      <image:title>Mohd Faisal Ansari - Senior DevOps and Cloud Architect</image:title>
+      <image:caption>Faisal Ansari Enterprise Cloud Architect and Deputy Manager Systems at State Bank of India</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://faisal.host/assets/og-preview.png</image:loc>
+      <image:title>Faisal Ansari Cloud Platform Architecture</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://faisal.host/assets/Faisal_Ansari_Resume.pdf</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
