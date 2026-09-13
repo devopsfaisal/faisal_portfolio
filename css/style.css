@@ -301,6 +301,7 @@ a:hover {
 .section-title .gradient-text {
   background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #0284c7 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -803,6 +804,7 @@ section {
 .hero-headline .highlight-blue {
   background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
