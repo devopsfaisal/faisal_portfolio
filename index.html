@@ -548,8 +548,8 @@
           <!-- Card 1: Browser-to-Edge Roundtrip Latency (Live Ping) -->
           <div class="telemetry-card" style="--card-accent: #38bdf8;">
             <div class="telemetry-header">
-              <span class="telemetry-label">Browser ➔ Edge Latency</span>
-              <span class="badge badge-blue">Live Diagnostic</span>
+              <span class="telemetry-label">Edge Latency Ping</span>
+              <span class="badge badge-blue">Live Ping</span>
             </div>
             <div class="telemetry-value-row">
               <span class="telemetry-value" id="edgeLatencyVal">-- ms</span>
@@ -567,8 +567,8 @@
           <!-- Card 2: CloudFront Cache Hit Ratio -->
           <div class="telemetry-card" style="--card-accent: #10b981;">
             <div class="telemetry-header">
-              <span class="telemetry-label">Edge Cache Hit Ratio</span>
-              <span class="badge badge-emerald">Global Anycast</span>
+              <span class="telemetry-label">Cache Hit Ratio</span>
+              <span class="badge badge-emerald">CloudFront</span>
             </div>
             <div class="telemetry-value-row">
               <span class="telemetry-value" id="edgeHitRatioVal">98.6%</span>
@@ -586,8 +586,8 @@
           <!-- Card 3: S3 Origin Access Control (OAC) & Encryption -->
           <div class="telemetry-card" style="--card-accent: #f59e0b;">
             <div class="telemetry-header">
-              <span class="telemetry-label">S3 Origin Protection</span>
-              <span class="badge badge-amber">Private Bucket</span>
+              <span class="telemetry-label">S3 Origin Security</span>
+              <span class="badge badge-amber">OAC Locked</span>
             </div>
             <div class="telemetry-value-row">
               <span class="telemetry-value" id="edgeSecurityVal" style="font-size: 1.45rem; letter-spacing: -0.02em;">OAC Enforced</span>
@@ -606,7 +606,7 @@
           <div class="telemetry-card" style="--card-accent: #6366f1;">
             <div class="telemetry-header">
               <span class="telemetry-label">Global Edge SLA</span>
-              <span class="badge badge-purple">Route 53 DNS</span>
+              <span class="badge badge-purple">99.99% SLA</span>
             </div>
             <div class="telemetry-value-row">
               <span class="telemetry-value" id="edgeSlaVal">99.99%</span>
@@ -1877,7 +1877,7 @@
         <div class="footer-col">
           <h4>Architectures</h4>
           <ul class="footer-links">
-            <li><a href="#topology">SBI OpenShift Platform</a></li>
+            <li><a href="#topology">OpenShift Platform</a></li>
             <li><a href="#topology">AWS EKS &amp; Karpenter</a></li>
             <li><a href="#topology">Air-Gapped Appliances</a></li>
             <li><a href="#telemetry">LGTM Observability</a></li>
