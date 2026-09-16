@@ -30,6 +30,16 @@ The portfolio is hosted on a highly available, enterprise-grade serverless archi
 
 ---
 
+## 🌿 Git Branching Strategy
+
+This repository follows standard **GitHub Flow** with dedicated development and production tiers:
+
+- **`main` (Production)**: Locked, production branch. Mirrors live production at [https://faisal.host](https://faisal.host). Deployed automatically via AWS S3/CloudFront CI/CD on merge.
+- **`dev` (Development & Integration)**: Default active development branch. All features, UI updates, and fixes are integrated and validated here.
+- **`feature/<name>` / `fix/<name>`**: Isolated feature branches created from `dev`. Merged back into `dev` after local verification.
+
+---
+
 ## 🚀 GitHub Actions CI/CD Setup
 
 To enable automated zero-downtime deployments via GitHub Actions, configure the following secrets in your repository (**Settings** ➔ **Secrets and variables** ➔ **Actions**):
