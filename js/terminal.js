@@ -491,7 +491,6 @@ URL: <a href="https://notes.faisal.host" target="_blank" style="color:#f59e0b; t
 
     'dig': () => executeDigCommand('faisal.host', 'A'),
     'dig faisal.host': () => executeDigCommand('faisal.host', 'A'),
-    'dig preview.faisal.host': () => executeDigCommand('preview.faisal.host', 'A'),
     'dig status.faisal.host': () => executeDigCommand('status.faisal.host', 'CNAME'),
     'nslookup': () => executeNslookupCommand('faisal.host'),
     'nslookup faisal.host': () => executeNslookupCommand('faisal.host'),
