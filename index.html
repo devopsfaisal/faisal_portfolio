@@ -65,7 +65,7 @@
 
   <!-- Core CSS -->
   <link rel="stylesheet" href="css/style.css?v=8">
-  <link rel="stylesheet" href="css/components.css?v=9">
+  <link rel="stylesheet" href="css/components.css?v=10">
 
   <!-- Credly Badge Verification Embed Script -->
   <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
@@ -723,6 +723,9 @@
             <span>Launch Timing Waterfall</span>
             <span>↗</span>
           </button>
+          <button class="sre-quick-cli-btn" id="openDnsModalBtn" title="Inspect Live DNS Records &amp; TLS 1.3">
+            <span>🛡️ DNS &amp; TLS Audit</span>
+          </button>
           <button class="sre-quick-cli-btn" id="sreTerminalProbeBtn" data-cmd="sre-probe" title="Inspect via Terminal CLI">
             <span>&gt;_ sre-probe</span>
           </button>
@@ -830,6 +833,7 @@
             <button class="quick-cmd-chip" data-cmd="traffic" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">traffic</button>
             <button class="quick-cmd-chip" data-cmd="telemetry" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4);">telemetry</button>
             <button class="quick-cmd-chip" data-cmd="sre-probe" style="color: #34d399; border-color: rgba(52, 211, 153, 0.45); background: rgba(16, 185, 129, 0.1);">⚡ sre-probe</button>
+            <button class="quick-cmd-chip" data-cmd="dig faisal.host" style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.45); background: rgba(96, 165, 250, 0.1);">dig faisal.host</button>
           </div>
         </div>
       </div>
@@ -2130,11 +2134,118 @@
     </div>
   </div>
 
+  <!-- DNS-over-HTTPS (DoH) & TLS Security Inspector Modal -->
+  <div class="modal-overlay" id="dnsSecurityModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog dns-modal-dialog">
+      <div class="modal-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-purple">RFC 8484 DNS-over-HTTPS</span>
+            <span class="badge badge-emerald">Route 53 DNSSEC Ready</span>
+          </div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-top: 0.35rem;">
+            Route 53 DNS &amp; TLS 1.3 Security Inspector
+          </h3>
+        </div>
+        <button class="modal-close-btn" id="dnsModalCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- TLS & Encryption Guardrails Overview Card -->
+        <div class="tls-audit-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">
+              🔒 Verified CloudFront SSL/TLS 1.3 Security Baseline
+            </span>
+            <span class="badge badge-emerald">Strict HSTS Active</span>
+          </div>
+          <div class="tls-audit-grid">
+            <div class="tls-audit-item">
+              <span class="tls-audit-label">Negotiated Protocol</span>
+              <span class="tls-audit-val">TLSv1.3 (RFC 8446)</span>
+            </div>
+            <div class="tls-audit-item">
+              <span class="tls-audit-label">Cert Authority</span>
+              <span class="tls-audit-val">Amazon Trust Services</span>
+            </div>
+            <div class="tls-audit-item">
+              <span class="tls-audit-label">Cipher Suite</span>
+              <span class="tls-audit-val">TLS_AES_128_GCM_SHA256</span>
+            </div>
+            <div class="tls-audit-item">
+              <span class="tls-audit-label">HSTS Max-Age</span>
+              <span class="tls-audit-val">31,536,000s (1 Year)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DNS Query Controls -->
+        <div class="dns-controls-bar">
+          <div class="dns-domain-picker">
+            <span style="font-size: 0.75rem; color: var(--text-tertiary); text-transform: uppercase; font-weight: 600;">Zone:</span>
+            <select class="dns-domain-select" id="dnsDomainSelect" aria-label="Select domain zone">
+              <option value="faisal.host">faisal.host (Production Apex)</option>
+              <option value="preview.faisal.host">preview.faisal.host (Preview Subdomain)</option>
+              <option value="status.faisal.host">status.faisal.host (Status SLA Feed)</option>
+            </select>
+          </div>
+
+          <div class="dns-type-tabs">
+            <button class="dns-tab-btn active" data-type="A">A (IPv4)</button>
+            <button class="dns-tab-btn" data-type="NS">NS (Route 53)</button>
+            <button class="dns-tab-btn" data-type="SOA">SOA (Authority)</button>
+            <button class="dns-tab-btn" data-type="CNAME">CNAME</button>
+          </div>
+        </div>
+
+        <!-- Query Meta Banner -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; font-size: 0.78rem; color: var(--text-muted);">
+          <span id="dnsQueryMeta">Querying Route 53 via Google DoH (8.8.8.8)...</span>
+          <button id="dnsRefreshBtn" class="btn btn-outline" style="padding: 0.25rem 0.65rem; font-size: 0.75rem;">🔄 Query DoH</button>
+        </div>
+
+        <!-- DNS Table Container -->
+        <div class="dns-table-container">
+          <table class="dns-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Record Name</th>
+                <th style="width: 15%;">Type</th>
+                <th style="width: 15%;">TTL</th>
+                <th style="width: 45%;">Data / IP / Target</th>
+              </tr>
+            </thead>
+            <tbody id="dnsResultsBody">
+              <tr>
+                <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                  Loading Route 53 records...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="sre-modal-footer">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">
+            Queried live from <code>dns.google/resolve</code> (RFC 8484). Corresponds directly to active Route 53 hosted zone.
+          </span>
+          <div style="display: flex; gap: 0.6rem;">
+            <button class="btn btn-primary" id="dnsModalDoneBtn" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/terminal.js?v=3"></script>
+  <script src="js/terminal.js?v=4"></script>
   <script src="js/topology.js?v=9"></script>
   <script src="js/telemetry.js?v=2"></script>
   <script src="js/edge-telemetry.js?v=2"></script>
+  <script src="js/dns-security.js?v=1"></script>
   <script src="js/app.js?v=2"></script>
 </body>
 

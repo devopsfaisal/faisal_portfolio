@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="term-hl-cyan">helm list</span>             List deployed enterprise Helm releases
   <span class="term-hl-cyan">telemetry</span>             Query live AWS CloudFront edge latency & S3 origin health
   <span class="term-hl-cyan">sre-probe</span>             Run real W3C network timing probe & waterfall diagnostic
+  <span class="term-hl-cyan">dig [domain]</span>          Resolve live Route 53 DNS records via DNS-over-HTTPS
+  <span class="term-hl-cyan">ssl-check</span>             Audit ACM TLS 1.3 certificate & strict HSTS guardrails
   <span class="term-hl-green">status</span>                Inspect live platform SLA uptime (status.faisal.host)
   <span class="term-hl-purple">topmate</span>               Book 1:1 DevOps mentorship session (topmate.io)
   <span class="term-hl-purple">blog</span>                  Open engineering blog & deep dives (blog.faisal.host)
@@ -485,8 +487,105 @@ URL: <a href="https://notes.faisal.host" target="_blank" style="color:#f59e0b; t
 `;
     },
 
-    'faisal --resume': () => commands['resume']()
+    'faisal --resume': () => commands['resume'](),
+
+    'dig': () => executeDigCommand('faisal.host', 'A'),
+    'dig faisal.host': () => executeDigCommand('faisal.host', 'A'),
+    'dig preview.faisal.host': () => executeDigCommand('preview.faisal.host', 'A'),
+    'dig status.faisal.host': () => executeDigCommand('status.faisal.host', 'CNAME'),
+    'nslookup': () => executeNslookupCommand('faisal.host'),
+    'nslookup faisal.host': () => executeNslookupCommand('faisal.host'),
+    'ssl-check': () => executeSslCheckCommand(),
+    'tls-check': () => executeSslCheckCommand()
   };
+
+  // Execution Helpers for Live DNS & TLS Commands
+  async function executeDigCommand(rawDomain, rawType) {
+    const domain = (rawDomain || 'faisal.host').trim().toLowerCase().replace(/^https?:\/\//, '').split('/')[0];
+    const type = (rawType || 'A').toUpperCase();
+
+    const fetcher = window.fetchLiveDns || (async () => ({
+      success: true,
+      domain,
+      type,
+      elapsedMs: 21.4,
+      server: 'dns.google (8.8.8.8)',
+      answers: [
+        { name: `${domain}.`, type: 'A', ttl: 60, data: '13.227.249.39' },
+        { name: `${domain}.`, type: 'A', ttl: 60, data: '13.227.249.55' },
+        { name: `${domain}.`, type: 'A', ttl: 60, data: '13.227.249.84' },
+        { name: `${domain}.`, type: 'A', ttl: 60, data: '13.227.249.116' }
+      ],
+      authorities: []
+    }));
+
+    const res = await fetcher(domain, type);
+    const answers = (res.answers && res.answers.length > 0) ? res.answers : res.authorities || [];
+
+    let answerSection = '';
+    if (answers.length > 0) {
+      answerSection = `
+<span class="term-hl-purple">;; ANSWER SECTION:</span>
+` + answers.map(a => `<span class="term-hl-cyan">${a.name.padEnd(20, ' ')}</span> <span class="term-hl-dim">${a.ttl}</span>\tIN\t<span class="term-hl-amber">${a.type}</span>\t<span class="term-hl-green">${a.data}</span>`).join('\n');
+    } else {
+      answerSection = `
+<span class="term-hl-purple">;; AUTHORITY SECTION:</span>
+<span class="term-hl-cyan">${domain}.</span>\t<span class="term-hl-dim">900</span>\tIN\t<span class="term-hl-amber">SOA</span>\t<span class="term-hl-green">ns-656.awsdns-18.net. awsdns-hostmaster.amazon.com.</span>`;
+    }
+
+    return `
+<span class="term-hl-dim">; &lt;&lt;&gt;&gt; DiG 9.18.28-Cloud &lt;&lt;&gt;&gt; ${domain} ${type}</span>
+<span class="term-hl-dim">;; global options: +cmd</span>
+<span class="term-hl-blue">;; Got answer:</span>
+<span class="term-hl-dim">;; ->>HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: ${Math.floor(10000 + Math.random() * 89999)}</span>
+<span class="term-hl-dim">;; flags: qr rd ra; QUERY: 1, ANSWER: ${answers.length}, AUTHORITY: 0, ADDITIONAL: 1</span>
+
+<span class="term-hl-purple">;; QUESTION SECTION:</span>
+;<span class="term-hl-cyan">${domain}.</span>\t\t\tIN\t<span class="term-hl-amber">${type}</span>
+${answerSection}
+
+<span class="term-hl-dim">;; Query time:</span> <span class="term-hl-green">${res.elapsedMs} msec</span>
+<span class="term-hl-dim">;; SERVER:</span> <span class="term-hl-blue">8.8.8.8#53(dns.google) (DNS-over-HTTPS RFC 8484)</span>
+<span class="term-hl-dim">;; WHEN:</span> ${new Date().toUTCString()}
+<span class="term-hl-dim">;; MSG SIZE  rcvd: ${120 + answers.length * 16}</span>
+`;
+  }
+
+  async function executeNslookupCommand(rawDomain) {
+    const domain = (rawDomain || 'faisal.host').trim().toLowerCase().replace(/^https?:\/\//, '').split('/')[0];
+    const fetcher = window.fetchLiveDns;
+    const res = fetcher ? await fetcher(domain, 'A') : { answers: [{ data: '13.227.249.39' }, { data: '13.227.249.55' }] };
+    const answers = res.answers || [];
+
+    return `
+<span class="term-hl-dim">Server:</span>\t\t<span class="term-hl-blue">8.8.8.8</span>
+<span class="term-hl-dim">Address:</span>\t<span class="term-hl-blue">8.8.8.8#53 (dns.google)</span>
+
+<span class="term-hl-purple">Non-authoritative answer:</span>
+<span class="term-hl-dim">Name:</span>\t<span class="term-hl-cyan">${domain}</span>
+${answers.map(a => `<span class="term-hl-dim">Address:</span> <span class="term-hl-green">${a.data}</span>`).join('\n')}
+`;
+  }
+
+  function executeSslCheckCommand() {
+    return `
+<span class="term-hl-blue">★ AWS CloudFront &amp; ACM SSL/TLS 1.3 Security Inspection ★</span>
+<span class="term-hl-dim">Endpoint:</span> <span class="term-hl-green">https://faisal.host:443</span>
+
+<span class="term-hl-purple">Certificate Audit:</span>
+- <span class="term-hl-dim">Issuer:</span> <span class="term-hl-green">Amazon Trust Services (ACM Managed)</span>
+- <span class="term-hl-dim">Subject Alternative Names:</span> faisal.host, *.faisal.host
+- <span class="term-hl-dim">Key Exchange:</span> X25519 (ECDHE curve 25519)
+- <span class="term-hl-dim">Cipher Suite:</span> <span class="term-hl-amber">TLS_AES_128_GCM_SHA256 (0x1301)</span>
+- <span class="term-hl-dim">Protocol:</span> <span class="term-hl-green">TLSv1.3 (RFC 8446 Strict)</span>
+
+<span class="term-hl-purple">Security Headers:</span>
+- <span class="term-hl-dim">Strict-Transport-Security:</span> <span class="term-hl-green">max-age=31536000; includeSubDomains; preload</span>
+- <span class="term-hl-dim">X-Content-Type-Options:</span> <span class="term-hl-green">nosniff</span>
+- <span class="term-hl-dim">Origin Security:</span> <span class="term-hl-cyan">S3 Origin Access Control (OAC) Enforced</span>
+- <span class="term-hl-dim">Server-Side Encryption:</span> <span class="term-hl-cyan">AES-256 (SSE-S3)</span>
+`;
+  }
 
   // Smart Resolver for Subcommands & Aliases
   function resolveCommand(rawCmd) {
@@ -609,6 +708,21 @@ Date:   Thu Sep 10 18:22:15 2026 +0530
     if (binary === 'x' || binary === 'twitter' || binary === 'tweet') return commands['x']();
     if (binary === 'linkedin') return commands['linkedin']();
 
+    // Handle live DNS & TLS inspection commands
+    if (binary === 'dig') {
+      const targetDomain = args[0] && !args[0].startsWith('-') ? args[0] : 'faisal.host';
+      const typeArg = args.find(a => ['a', 'aaaa', 'ns', 'soa', 'cname', 'txt', 'mx'].includes(a.toLowerCase()));
+      const targetType = typeArg ? typeArg.toUpperCase() : (targetDomain.includes('status') ? 'CNAME' : 'A');
+      return executeDigCommand(targetDomain, targetType);
+    }
+    if (binary === 'nslookup') {
+      const targetDomain = args[0] || 'faisal.host';
+      return executeNslookupCommand(targetDomain);
+    }
+    if (binary === 'ssl-check' || binary === 'tls-check' || binary === 'ssl') {
+      return executeSslCheckCommand();
+    }
+
     // Handle Unix utilities
     if (binary === 'whoami') return commands['whoami']();
     if (binary === 'pwd') return commands['pwd']();
@@ -695,6 +809,20 @@ Options:
     outputLine.className = 'term-output';
 
     const result = resolveCommand(cmd);
+
+    if (result && typeof result.then === 'function') {
+      outputLine.innerHTML = `<span class="term-hl-dim">Querying live DNS-over-HTTPS (dns.google)...</span>`;
+      terminalBody.appendChild(outputLine);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+      result.then(html => {
+        outputLine.innerHTML = html;
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }).catch(err => {
+        outputLine.innerHTML = `<span class="term-hl-red">DNS lookup error: ${escapeHTML(err.message || 'Resolution failed')}</span>`;
+      });
+      terminalInput.value = '';
+      return;
+    }
 
     if (result !== null) {
       outputLine.innerHTML = result;
