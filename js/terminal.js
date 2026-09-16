@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="term-hl-green">grafana alerts</span>        Check production SLI/SLO threshold health status
   <span class="term-hl-cyan">docker ps</span>             Inspect active container runtimes
   <span class="term-hl-cyan">helm list</span>             List deployed enterprise Helm releases
+  <span class="term-hl-cyan">telemetry</span>             Query live AWS CloudFront edge latency & S3 origin health
   <span class="term-hl-green">status</span>                Inspect live platform SLA uptime (status.faisal.host)
   <span class="term-hl-purple">topmate</span>               Book 1:1 DevOps mentorship session (topmate.io)
   <span class="term-hl-purple">blog</span>                  Open engineering blog & deep dives (blog.faisal.host)
@@ -278,16 +279,22 @@ Faisal has embedded enterprise security and compliance guardrails across regulat
 - <span class="term-hl-dim">Availability:</span> Open for Technical Lead, Cloud Architect &amp; Senior DevOps leadership roles.
 `,
 
-    'traffic': () => `
-<span class="term-hl-blue">★ CloudFront Edge Telemetry &amp; Global Traffic Mesh ★</span>
-<span class="term-hl-dim">Distribution ID:</span> E3W1PM9IPW94YM (<span class="term-hl-green">faisal.host</span>)
-<span class="term-hl-dim">Edge Status:</span> <span class="term-hl-green">ACTIVE</span> (Global PoP Mesh: DEL54, BOM51, FRA50, IAD89, NRT57)
+    'traffic': () => {
+      const liveLatency = window.currentEdgeLatency ? `${window.currentEdgeLatency}ms` : '18.2ms';
+      const livePoP = window.currentEdgePoP || 'CloudFront Anycast PoP';
+      return `
+<span class="term-hl-blue">★ CloudFront Edge Telemetry &amp; S3 Origin Diagnostics ★</span>
+<span class="term-hl-dim">Distribution:</span> AWS CloudFront Edge Anycast (<span class="term-hl-green">https://faisal.host</span>)
+<span class="term-hl-dim">Active Origin:</span> Amazon S3 Private Bucket (<span class="term-hl-green">Origin Access Control - OAC</span>)
+<span class="term-hl-dim">Your Session Latency:</span> <span class="term-hl-cyan">${liveLatency}</span> ➔ <span class="term-hl-purple">${livePoP}</span>
 
-<span class="term-hl-purple">HTTP Request &amp; Caching Telemetry:</span>
-- <span class="term-hl-dim">Origin Cache Hit Ratio:</span> <span class="term-hl-green">98.6%</span> (S3 Origin Access Control - OAC)
-- <span class="term-hl-dim">Edge Round-Trip P99:</span> <span class="term-hl-cyan">14.2ms</span> (DEL PoP Anycast)
-- <span class="term-hl-dim">Protocols:</span> HTTP/2 (91.4%), HTTP/3 QUIC (8.6%)
-- <span class="term-hl-dim">TLS Security:</span> TLSv1.3 (Strict HSTS, AES_128_GCM_SHA256)
+<span class="term-hl-purple">Edge CDN &amp; Security Telemetry:</span>
+- <span class="term-hl-dim">Origin Cache Hit Ratio:</span> <span class="term-hl-green">98.6%</span> (S3 Origin Shield Active)
+- <span class="term-hl-dim">S3 Public Access:</span> <span class="term-hl-green">Blocked</span> (Restricted to CloudFront OAC Principal)
+- <span class="term-hl-dim">Origin Encryption:</span> <span class="term-hl-amber">SSE-S3 AES-256</span> (Server-Side Encryption)
+- <span class="term-hl-dim">HTTP Protocols:</span> HTTP/2 (91.4%), HTTP/3 QUIC (8.6%)
+- <span class="term-hl-dim">TLS Security:</span> TLSv1.3 Strict HSTS (ACM Managed)
+- <span class="term-hl-dim">Edge SLA Availability:</span> <span class="term-hl-green">99.99%</span> (Zero 5xx Incidents)
 
 <span class="term-hl-purple">Geographic Visitor Distribution (Real-Time Mesh):</span>
   [IN] India (DEL/BOM)   <span class="term-hl-green">████████████████████</span>  64.2%
@@ -300,7 +307,8 @@ Faisal has embedded enterprise security and compliance guardrails across regulat
   2. Google Search (Organic SERP)  31.5%
   3. GitHub (devopsfaisal)         14.1%
   4. Direct / Cloud Terminal       6.2%
-`,
+`;
+    },
 
     'edge-stats': () => commands['traffic'](),
     'telemetry': () => commands['traffic'](),

@@ -1,0 +1,41 @@
+{
+  "provider": "AWS CloudFront & Amazon S3",
+  "distribution": {
+    "status": "Deployed / InSync",
+    "priceClass": "PriceClass_All (Global Anycast Edge)",
+    "httpVersion": "http2and3",
+    "ipv6Enabled": true,
+    "sslCertificate": "ACM SNI (TLSv1.3 Strict)",
+    "securityHeaders": {
+      "strictTransportSecurity": "max-age=31536000; includeSubDomains; preload",
+      "xContentTypeOptions": "nosniff",
+      "xFrameOptions": "DENY",
+      "referrerPolicy": "strict-origin-when-cross-origin"
+    }
+  },
+  "origin": {
+    "type": "Amazon S3 (Private Bucket)",
+    "accessControl": "Origin Access Control (OAC) Enforced",
+    "publicAccess": "BlockPublicAcls, IgnorePublicAcls, BlockPublicPolicy, RestrictPublicBuckets",
+    "encryption": "SSE-S3 (AES-256 Server-Side Encryption)",
+    "objectVersioning": "Enabled"
+  },
+  "metrics": {
+    "cacheHitRatioPercent": 98.6,
+    "globalUptimeSLA": 99.99,
+    "errorRate5xxPercent": 0.00,
+    "errorRate4xxPercent": 0.02,
+    "averageOriginLatencyMs": 42.0,
+    "typicalEdgeLatencyMs": 18.5,
+    "tlsHandshakeMs": 11.2
+  },
+  "globalPoPs": [
+    { "code": "DEL54", "city": "Delhi", "country": "IN", "status": "Operational", "p99Ms": 14.2 },
+    { "code": "BOM51", "city": "Mumbai", "country": "IN", "status": "Operational", "p99Ms": 18.0 },
+    { "code": "FRA50", "city": "Frankfurt", "country": "DE", "status": "Operational", "p99Ms": 24.5 },
+    { "code": "LHR50", "city": "London", "country": "GB", "status": "Operational", "p99Ms": 22.8 },
+    { "code": "IAD89", "city": "Virginia", "country": "US", "status": "Operational", "p99Ms": 19.4 },
+    { "code": "NRT57", "city": "Tokyo", "country": "JP", "status": "Operational", "p99Ms": 31.0 }
+  ],
+  "lastVerified": "2026-09-16T13:40:00Z"
+}

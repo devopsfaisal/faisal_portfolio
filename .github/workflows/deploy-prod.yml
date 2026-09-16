@@ -38,6 +38,7 @@ jobs:
             --exclude "*" \
             --include "css/*" \
             --include "js/*" \
+            --include "data/*" \
             --cache-control "public, max-age=0, must-revalidate" \
             --delete
 
