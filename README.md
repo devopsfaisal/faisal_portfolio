@@ -30,13 +30,16 @@ The portfolio is hosted on a highly available, enterprise-grade serverless archi
 
 ---
 
-## 🌿 Git Branching Strategy
+## 🌿 Git Branching & Deployment Strategy
 
-This repository follows standard **GitHub Flow** with dedicated development and production tiers:
+This repository follows standard **GitHub Flow** with dedicated preview and production environments:
 
-- **`main` (Production)**: Locked, production branch. Mirrors live production at [https://faisal.host](https://faisal.host). Deployed automatically via AWS S3/CloudFront CI/CD on merge.
-- **`dev` (Development & Integration)**: Default active development branch. All features, UI updates, and fixes are integrated and validated here.
+- **`main` (Production)**: Locked, production branch. Mirrors live production at [https://faisal.host](https://faisal.host). Deployed automatically via `deploy-prod.yml` on PR merge.
+- **`dev` (Preview / Integration)**: Default active development branch. Deployed automatically via `deploy-preview.yml` to [https://preview.faisal.host](https://preview.faisal.host) for testing.
 - **`feature/<name>` / `fix/<name>`**: Isolated feature branches created from `dev`. Merged back into `dev` after local verification.
+
+> [!NOTE]
+> **Preview SEO Protection**: The preview deployment pipeline automatically overwrites `robots.txt` (`Disallow: /`) and injects `<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">` into `index.html`. This strictly prevents search engines like Google from indexing `preview.faisal.host`, ensuring only the canonical production domain `faisal.host` is indexed.
 
 ---
 
@@ -44,13 +47,15 @@ This repository follows standard **GitHub Flow** with dedicated development and 
 
 To enable automated zero-downtime deployments via GitHub Actions, configure the following secrets in your repository (**Settings** ➔ **Secrets and variables** ➔ **Actions**):
 
-| Secret Name | Description | Required |
+| Secret Name | Description | Environment |
 | :--- | :--- | :--- |
-| `AWS_ACCESS_KEY_ID` | IAM User Access Key ID with S3 & CloudFront permissions | Yes |
-| `AWS_SECRET_ACCESS_KEY` | IAM User Secret Access Key | Yes |
-| `AWS_REGION` | AWS Region of your S3 Bucket (e.g., `us-east-1` or `ap-south-1`) | Yes |
-| `S3_BUCKET_NAME` | Name of your private S3 bucket | Yes |
-| `CLOUDFRONT_DISTRIBUTION_ID` | Your CloudFront distribution identifier | Yes |
+| `AWS_ACCESS_KEY_ID` | IAM User Access Key ID with S3 & CloudFront permissions | Global |
+| `AWS_SECRET_ACCESS_KEY` | IAM User Secret Access Key | Global |
+| `AWS_REGION` | AWS Region of your S3 Buckets (e.g., `us-east-1` or `ap-south-1`) | Global |
+| `S3_BUCKET_NAME` | Name of your private production S3 bucket | Production (`main`) |
+| `CLOUDFRONT_DISTRIBUTION_ID` | Your production CloudFront distribution identifier | Production (`main`) |
+| `DEV_S3_BUCKET_NAME` | Name of your private preview S3 bucket | Preview (`dev`) |
+| `DEV_CLOUDFRONT_DISTRIBUTION_ID` | Your preview CloudFront distribution identifier | Preview (`dev`) |
 
 ### Minimum IAM Permissions Required for GitHub Actions User
 

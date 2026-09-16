@@ -1,0 +1,95 @@
+name: Deploy Preview to AWS S3 & CloudFront (preview.faisal.host)
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  deploy-preview:
+    name: Sync Preview to S3 & Invalidate CloudFront
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Preview Secrets Configuration
+        run: |
+          if [ -z "${{ secrets.DEV_S3_BUCKET_NAME }}" ] || [ -z "${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
+            echo "::error::Preview secrets 'DEV_S3_BUCKET_NAME' or 'DEV_CLOUDFRONT_DISTRIBUTION_ID' are missing in GitHub repository secrets!"
+            echo "Please configure them in: GitHub Repo -> Settings -> Secrets and variables -> Actions"
+            exit 1
+          fi
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION || 'us-east-1' }}
+
+      - name: Enforce No-Index & Preview SEO Protection
+        run: |
+          echo "--> Overwriting robots.txt with Disallow: / for preview environment..."
+          cat << 'EOF' > robots.txt
+          User-agent: *
+          Disallow: /
+          EOF
+
+          echo "--> Injecting noindex, nofollow meta tag into index.html..."
+          sed -i.bak 's/<meta name="robots" content="[^"]*"/<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/g' index.html
+          rm -f index.html.bak
+
+          echo "--> Verifying preview SEO protection:"
+          cat robots.txt
+          grep -n "name=\"robots\"" index.html
+
+      - name: Deploy Media & Documents to Preview S3 (Immutable Long-Term Cache)
+        run: |
+          echo "--> Uploading static media assets (assets/*) to preview..."
+          aws s3 sync . s3://${{ secrets.DEV_S3_BUCKET_NAME }} \
+            --exclude "*" \
+            --include "assets/*" \
+            --cache-control "public, max-age=31536000, immutable" \
+            --delete
+
+      - name: Deploy Code Assets (CSS/JS) to Preview S3 (Fast Revalidation)
+        run: |
+          echo "--> Uploading CSS & JS code assets to preview..."
+          aws s3 sync . s3://${{ secrets.DEV_S3_BUCKET_NAME }} \
+            --exclude "*" \
+            --include "css/*" \
+            --include "js/*" \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --delete
+
+      - name: Deploy Protected HTML & Root Files to Preview S3
+        run: |
+          echo "--> Uploading index.html and root files with noindex protection..."
+          aws s3 sync . s3://${{ secrets.DEV_S3_BUCKET_NAME }} \
+            --exclude "*" \
+            --include "*.html" \
+            --include "robots.txt" \
+            --include "favicon.ico" \
+            --include "site.webmanifest" \
+            --cache-control "public, max-age=0, must-revalidate"
+
+      - name: Invalidate Preview CloudFront Cache
+        run: |
+          echo "--> Creating CloudFront invalidation on preview distribution: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}"
+          INVALIDATION_ID=$(aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*" \
+            --query "Invalidation.Id" \
+            --output text)
+          echo "Preview invalidation created successfully with ID: $INVALIDATION_ID"
+
+      - name: Deployment Success Summary
+        run: |
+          echo "=========================================================="
+          echo "✔ Successfully deployed Preview to S3: ${{ secrets.DEV_S3_BUCKET_NAME }}"
+          echo "✔ CloudFront cache invalidated for: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}"
+          echo "✔ Preview URL: https://preview.faisal.host (SEO Noindex Protected)"
+          echo "=========================================================="

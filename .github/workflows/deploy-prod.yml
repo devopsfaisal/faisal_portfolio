@@ -1,4 +1,4 @@
-name: Deploy Portfolio to AWS S3 & CloudFront
+name: Deploy Production to AWS S3 & CloudFront (faisal.host)
 
 on:
   push:
