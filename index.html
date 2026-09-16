@@ -65,7 +65,7 @@
 
   <!-- Core CSS -->
   <link rel="stylesheet" href="css/style.css?v=8">
-  <link rel="stylesheet" href="css/components.css?v=8">
+  <link rel="stylesheet" href="css/components.css?v=9">
 
   <!-- Credly Badge Verification Embed Script -->
   <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
@@ -703,6 +703,31 @@
           </div>
         </div>
       </div>
+
+      <!-- Live SRE Diagnostic Probe Banner -->
+      <div class="sre-probe-banner">
+        <div class="sre-probe-info">
+          <div class="sre-probe-icon">⚡</div>
+          <div>
+            <div class="sre-probe-title">
+              <span>Real-Time SRE Browser Network Probe</span>
+              <span class="badge badge-emerald">W3C Timing API</span>
+            </div>
+            <p class="sre-probe-desc">
+              Diagnose real browser-to-CloudFront DNS resolution, TLS 1.3 handshake, TTFB server latency, and network transfer speeds for your session.
+            </p>
+          </div>
+        </div>
+        <div class="sre-probe-actions">
+          <button class="sre-launch-btn" id="openSreProbeBtn" aria-label="Launch Live Timing Waterfall">
+            <span>Launch Timing Waterfall</span>
+            <span>↗</span>
+          </button>
+          <button class="sre-quick-cli-btn" id="sreTerminalProbeBtn" data-cmd="sre-probe" title="Inspect via Terminal CLI">
+            <span>&gt;_ sre-probe</span>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -804,6 +829,7 @@
             <button class="quick-cmd-chip" data-cmd="faisal --compliance" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4);">faisal --compliance</button>
             <button class="quick-cmd-chip" data-cmd="traffic" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">traffic</button>
             <button class="quick-cmd-chip" data-cmd="telemetry" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4);">telemetry</button>
+            <button class="quick-cmd-chip" data-cmd="sre-probe" style="color: #34d399; border-color: rgba(52, 211, 153, 0.45); background: rgba(16, 185, 129, 0.1);">⚡ sre-probe</button>
           </div>
         </div>
       </div>
@@ -1974,11 +2000,141 @@
     </div>
   </div>
 
+  <!-- SRE Browser Performance Probe & Timing Waterfall Modal -->
+  <div class="modal-overlay" id="sreProbeModal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog sre-modal-dialog">
+      <div class="modal-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-emerald">W3C Navigation Timing v2</span>
+            <span class="badge badge-blue" id="sreModalProtocol">HTTP/2</span>
+          </div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-top: 0.35rem;">
+            Browser-to-Edge SRE Timing Waterfall
+          </h3>
+        </div>
+        <button class="modal-close-btn" id="sreModalCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Summary Metric Chips -->
+        <div class="sre-summary-chips">
+          <div class="sre-chip">
+            <span class="sre-chip-label">DNS Lookup</span>
+            <span class="sre-chip-value" id="sreDnsVal">-- ms</span>
+            <span class="sre-chip-sub">Route 53 Global Anycast</span>
+          </div>
+          <div class="sre-chip">
+            <span class="sre-chip-label">TCP + TLS 1.3</span>
+            <span class="sre-chip-value" id="sreTlsVal">-- ms</span>
+            <span class="sre-chip-sub">ACM Strict Handshake</span>
+          </div>
+          <div class="sre-chip">
+            <span class="sre-chip-label">Server TTFB</span>
+            <span class="sre-chip-value" id="sreTtfbVal">-- ms</span>
+            <span class="sre-chip-sub">Edge Origin Response</span>
+          </div>
+          <div class="sre-chip">
+            <span class="sre-chip-label">Total Load</span>
+            <span class="sre-chip-value" id="sreTotalVal">-- ms</span>
+            <span class="sre-chip-sub">DOM Complete &amp; Ready</span>
+          </div>
+        </div>
+
+        <!-- Waterfall Visualizer Card -->
+        <div class="sre-waterfall-card">
+          <div class="sre-waterfall-title-row">
+            <span style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Execution Phase Breakdown</span>
+            <div class="sre-wf-legend">
+              <span class="sre-wf-legend-item"><span class="sre-legend-dot" style="background: #a855f7;"></span> DNS</span>
+              <span class="sre-wf-legend-item"><span class="sre-legend-dot" style="background: #0284c7;"></span> TCP/TLS</span>
+              <span class="sre-wf-legend-item"><span class="sre-legend-dot" style="background: #10b981;"></span> TTFB</span>
+              <span class="sre-wf-legend-item"><span class="sre-legend-dot" style="background: #f59e0b;"></span> Download</span>
+            </div>
+          </div>
+
+          <div class="sre-waterfall-table">
+            <!-- Row 1: DNS -->
+            <div class="sre-waterfall-row">
+              <span class="sre-wf-label"><span class="sre-legend-dot" style="background: #a855f7;"></span> DNS Lookup</span>
+              <div class="sre-wf-track">
+                <div class="sre-wf-bar dns" id="sreBarDns" style="width: 0%; left: 0%;"></div>
+              </div>
+              <span class="sre-wf-dur" id="sreDurDns">0.0 ms</span>
+            </div>
+
+            <!-- Row 2: TCP + TLS -->
+            <div class="sre-waterfall-row">
+              <span class="sre-wf-label"><span class="sre-legend-dot" style="background: #0284c7;"></span> TCP + TLS 1.3</span>
+              <div class="sre-wf-track">
+                <div class="sre-wf-bar tcp" id="sreBarTcp" style="width: 0%; left: 0%;"></div>
+              </div>
+              <span class="sre-wf-dur" id="sreDurTcp">0.0 ms</span>
+            </div>
+
+            <!-- Row 3: TTFB -->
+            <div class="sre-waterfall-row">
+              <span class="sre-wf-label"><span class="sre-legend-dot" style="background: #10b981;"></span> Server TTFB</span>
+              <div class="sre-wf-track">
+                <div class="sre-wf-bar ttfb" id="sreBarTtfb" style="width: 0%; left: 0%;"></div>
+              </div>
+              <span class="sre-wf-dur" id="sreDurTtfb">0.0 ms</span>
+            </div>
+
+            <!-- Row 4: Download -->
+            <div class="sre-waterfall-row">
+              <span class="sre-wf-label"><span class="sre-legend-dot" style="background: #f59e0b;"></span> Content Download</span>
+              <div class="sre-wf-track">
+                <div class="sre-wf-bar download" id="sreBarDownload" style="width: 0%; left: 0%;"></div>
+              </div>
+              <span class="sre-wf-dur" id="sreDurDownload">0.0 ms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wire & Edge Inspection Metadata -->
+        <div class="sre-details-grid">
+          <div class="sre-detail-item">
+            <span class="sre-detail-key">Negotiated Protocol</span>
+            <span class="sre-detail-val" id="sreMetaProto">h2 (HTTP/2 Multiplexed)</span>
+          </div>
+          <div class="sre-detail-item">
+            <span class="sre-detail-key">Wire Transfer Size</span>
+            <span class="sre-detail-val" id="sreMetaTransfer">-- KB (Gzip/Brotli)</span>
+          </div>
+          <div class="sre-detail-item">
+            <span class="sre-detail-key">Decoded Payload</span>
+            <span class="sre-detail-val" id="sreMetaDecoded">-- KB (Uncompressed)</span>
+          </div>
+          <div class="sre-detail-item">
+            <span class="sre-detail-key">Edge Routing Route</span>
+            <span class="sre-detail-val" id="sreMetaPoP">AWS CloudFront Anycast</span>
+          </div>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="sre-modal-footer">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">
+            Data queried directly from browser <code>window.performance</code> subsystem. Zero synthetic mock data.
+          </span>
+          <div style="display: flex; gap: 0.6rem;">
+            <button class="btn btn-outline" id="sreRerunBtn" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+              🔄 Re-Run Live Ping
+            </button>
+            <button class="btn btn-primary" id="sreModalCloseActionBtn" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/terminal.js?v=2"></script>
+  <script src="js/terminal.js?v=3"></script>
   <script src="js/topology.js?v=9"></script>
   <script src="js/telemetry.js?v=2"></script>
-  <script src="js/edge-telemetry.js?v=1"></script>
+  <script src="js/edge-telemetry.js?v=2"></script>
   <script src="js/app.js?v=2"></script>
 </body>
 
